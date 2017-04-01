@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	   http://www.springframework.org/schema/beans/spring-beans.xsd 
+	   http://www.springframework.org/schema/aop 
+	   http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+<bean id="localDate01"
+		class="com.rollingstone.springframework.basic.ioc.contructor.injection.LocalDateFactory"
+		factory-method="createLocalDate">
+		<constructor-arg value="1975-01-14" />
+	</bean>
+	
+	<bean id="regnRenewalDate"
+		class="com.rollingstone.springframework.basic.ioc.contructor.injection.LocalDateFactory"
+		factory-method="createLocalDate">
+		<constructor-arg value="2017-03-24" />
+	</bean>
+
+	
+
+	<bean id="ownerCarMapOfStrings" class="com.rollingstone.springframework.basic.ioc.contructor.injection.collection.CarOwner">
+		<constructor-arg index="0" value="01"></constructor-arg>
+		<constructor-arg index="1" value="Steven"></constructor-arg>
+		<constructor-arg index="2" value="Smith"></constructor-arg>
+		<constructor-arg index="3">
+			<ref bean="localDate01"/>
+		</constructor-arg>
+		<constructor-arg index="4">  
+			<map>  
+				<entry key="primaryCar"  value="Toyota Prius"></entry>  
+				<entry key="secondaryCar" value="Toyota Highlander"></entry>  
+				<entry key="LeisureCar" value="BMWX5"></entry>  
+			</map>  
+		</constructor-arg>
+	</bean>
+	
+	<bean id="ownerCarMapOfObjects" class="com.rollingstone.springframework.basic.ioc.contructor.injection.collection.CarOwnerWithMapObjects">
+		<constructor-arg index="0" value="01"></constructor-arg>
+		<constructor-arg index="1" value="Ashley"></constructor-arg>
+		<constructor-arg index="2" value="Bentley"></constructor-arg>
+		<constructor-arg index="3">
+			<ref bean="localDate01"/>
+		</constructor-arg>
+		<constructor-arg index="4">  
+			<map>  
+				<entry key="primaryCar" value-ref="toyotaprius"></entry>  
+				<entry key="secondaryCar" value-ref="toyotahighander"></entry> 
+				<entry key="LeisureCar" value-ref="bmwX5"></entry>  
+			</map>   
+		</constructor-arg>
+	</bean>
+
+<bean id="toyotaprius" class="com.rollingstone.springframework.basic.ioc.contructor.injection.collection.Car">
+		<constructor-arg index="0" value="01"></constructor-arg>
+		<constructor-arg index="1" value="2014"></constructor-arg>
+		<constructor-arg index="2" value="Toyota"></constructor-arg>
+		<constructor-arg index="3" value="Prius"></constructor-arg>
+		<constructor-arg index="4" value="White"></constructor-arg>
+		<constructor-arg index="5">
+			<ref bean="regnRenewalDate"/>
+		</constructor-arg>
+</bean>
+
+<bean id="toyotahighander" class="com.rollingstone.springframework.basic.ioc.contructor.injection.collection.Car">
+		<constructor-arg index="0" value="01"></constructor-arg>
+		<constructor-arg index="1" value="2014"></constructor-arg>
+		<constructor-arg index="2" value="Toyota"></constructor-arg>
+		<constructor-arg index="3" value="HighLander"></constructor-arg>
+		<constructor-arg index="4" value="Gold"></constructor-arg>
+		<constructor-arg index="5">
+			<ref bean="regnRenewalDate"/>
+		</constructor-arg>
+</bean>
+
+<bean id="bmwX5" class="com.rollingstone.springframework.basic.ioc.contructor.injection.collection.Car">
+		<constructor-arg index="0" value="01"></constructor-arg>
+		<constructor-arg index="1" value="2014"></constructor-arg>
+		<constructor-arg index="2" value="BMW"></constructor-arg>
+		<constructor-arg index="3" value="X5"></constructor-arg>
+		<constructor-arg index="4" value="White"></constructor-arg>
+		<constructor-arg index="5">
+			<ref bean="regnRenewalDate"/>
+		</constructor-arg>
+</bean>
+
+
+
+</beans>

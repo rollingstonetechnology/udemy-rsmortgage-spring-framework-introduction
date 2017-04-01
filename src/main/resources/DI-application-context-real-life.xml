@@ -1,0 +1,375 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+                           http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.5.xsd
+                           http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
+                           http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd">
+
+
+	<!-- <util:constant id="X" static-field="java.lang.Integer.MAX_VALUE"/> 
+		<util:list id="Y" list-class="java.util.ArrayList"> <value>value1</value> 
+		<ref bean="X"/> </util:list> -->
+
+<bean id="atmosphere"
+		class="com.rollingstone.springframework.basic.real.life.examples.Atmosphere">
+</bean>
+	
+	<bean id="nature"
+		class="com.rollingstone.springframework.basic.real.life.examples.Nature">
+		<property name="atmosphere"> 
+			<ref bean="atmosphere" />
+		</property>
+		<property name="forests">
+			<list>
+				<ref bean="forest01" />
+				<ref bean="forest02" />
+				<ref bean="forest03" />
+				<ref bean="forest04" />
+			</list>
+		</property>
+		<property name="trees">
+			<list>
+				<ref bean="tree17" />
+				<ref bean="tree18" />
+				<ref bean="tree19" />
+				<ref bean="tree20" />
+			</list>
+		</property>
+		<property name="lands">
+			<list>
+				<value>North America</value>
+				<value>Asia</value>
+				<value>Africa</value>
+				<value>South America</value>
+				<value>Europe</value>
+				<value>Antarktica</value>
+				<value>Australia</value>
+			</list>
+		</property>
+		<property name="waterBodies">
+			<list>
+				<value>Pacific Ocean</value>
+				<value>Indian Ocean</value>
+				<value>Atlantic Ocean</value>
+				<value>Southern Ocean</value>
+				<value>Arctic Ocean</value>
+			</list>
+		</property>
+		<property name="animals">
+			<list>
+				<ref bean="tiger01" />
+				<ref bean="tiger01" />
+				<ref bean="tiger01" />
+				<ref bean="dolphin01" />
+				<ref bean="dolphin02" />
+				<ref bean="dolphin03" />
+			</list>
+		</property>
+	</bean>
+
+	<bean id="forest01"
+		class="com.rollingstone.springframework.basic.real.life.examples.Forest">
+		<property name="trees">
+			<list>
+				<ref bean="tree01" />
+				<ref bean="tree02" />
+				<ref bean="tree03" />
+				<ref bean="tree04" />
+			</list>
+		</property>
+	</bean>
+
+	<bean id="forest02"
+		class="com.rollingstone.springframework.basic.real.life.examples.Forest">
+		<property name="trees">
+			<list>
+				<ref bean="tree05" />
+				<ref bean="tree06" />
+				<ref bean="tree07" />
+				<ref bean="tree08" />
+			</list>
+		</property>
+	</bean>
+
+	<bean id="forest03"
+		class="com.rollingstone.springframework.basic.real.life.examples.Forest">
+		<property name="trees">
+			<list>
+				<ref bean="tree09" />
+				<ref bean="tree10" />
+				<ref bean="tree11" />
+				<ref bean="tree12" />
+			</list>
+		</property>
+	</bean>
+
+	<bean id="forest04"
+		class="com.rollingstone.springframework.basic.real.life.examples.Forest">
+		<property name="trees">
+			<list>
+				<ref bean="tree13" />
+				<ref bean="tree14" />
+				<ref bean="tree15" />
+				<ref bean="tree16" />
+			</list>
+		</property>
+	</bean>
+
+<!-- 	<util:map id="Z" map-class="java.util.HashMap">
+		<entry key="x" value="y" />
+		<entry key="y">
+			<ref bean="X" />
+		</entry>
+	</util:map>
+
+	<util:properties id="P" location="classpath:Main.properties" />
+
+	<bean id="simple" class="SimpleBean" />
+
+	<util:property-path id="Q" path="simple.name" />
+
+	<util:set id="S" set-class="java.util.HashSet">
+		<value>foo</value>
+		<ref bean="X" />
+	</util:set> -->
+
+	<bean id="tiger01"
+		class="com.rollingstone.springframework.basic.real.life.examples.Tiger">
+		<property name="name" value="Royal Bengal Tiger"></property>
+		<property name="species" value="Carnivore"></property>
+		<property name="naturalHabitat" value="Mangrove Forest, Sunderbans"></property>
+		<property name="endengered" value="true" />
+		<property name="color" value="Orange and Black stripes" />
+	</bean>
+
+
+	<bean id="tiger02"
+		class="com.rollingstone.springframework.basic.real.life.examples.Tiger">
+		<property name="name" value="Royal Bengal Tiger"></property>
+		<property name="species" value="Carnivore"></property>
+		<property name="naturalHabitat" value="Mangrove Forest, Sunderbans"></property>
+		<property name="endengered" value="true" />
+		<property name="color" value="Orange and Black stripes" />
+	</bean>
+
+	<bean id="tiger03"
+		class="com.rollingstone.springframework.basic.real.life.examples.Tiger">
+		<property name="name" value="Royal Bengal Tiger"></property>
+		<property name="species" value="Carnivore"></property>
+		<property name="naturalHabitat" value="Mangrove Forest, Sunderbans"></property>
+		<property name="endengered" value="true" />
+		<property name="color" value="Orange and Black stripes" />
+	</bean>
+
+	<bean id="dolphin01"
+		class="com.rollingstone.springframework.basic.real.life.examples.Dolphins">
+		<property name="name" value="Wonderful Dolphins"></property>
+		<property name="species" value="Carnivore"></property>
+		<property name="naturalHabitat" value="Oceans and Bays"></property>
+		<property name="endengered" value="false" />
+		<property name="color" value="Black and White" />
+	</bean>
+
+	<bean id="dolphin02"
+		class="com.rollingstone.springframework.basic.real.life.examples.Dolphins">
+		<property name="name" value="Wonderful Dolphins"></property>
+		<property name="species" value="Carnivore"></property>
+		<property name="naturalHabitat" value="Oceans and Bays"></property>
+		<property name="endengered" value="false" />
+		<property name="color" value="Black and White" />
+	</bean>
+
+	<bean id="dolphin03"
+		class="com.rollingstone.springframework.basic.real.life.examples.Dolphins">
+		<property name="name" value="Wonderful Dolphins"></property>
+		<property name="species" value="Carnivore"></property>
+		<property name="naturalHabitat" value="Oceans and Bays"></property>
+		<property name="endengered" value="false" />
+		<property name="color" value="Black and White" />
+	</bean>
+
+	<bean id="tree01"
+		class="com.rollingstone.springframework.basic.real.life.examples.Tree">
+		<property name="name" value="Oak"></property>
+		<property name="height" value="10 Meters"></property>
+		<property name="age" value="70"></property>
+		<property name="habitat" value="Europe and North America" />
+		<property name="type" value="Tropical" />
+	</bean>
+
+	<bean id="tree02"
+		class="com.rollingstone.springframework.basic.real.life.examples.Tree">
+		<property name="name" value="Willow"></property>
+		<property name="height" value="7 Meters"></property>
+		<property name="age" value="70"></property>
+		<property name="habitat" value="Europe and North America" />
+		<property name="type" value="Tropical" />
+	</bean>
+
+	<bean id="tree03"
+		class="com.rollingstone.springframework.basic.real.life.examples.Tree">
+		<property name="name" value="Mango"></property>
+		<property name="height" value="5 Meters"></property>
+		<property name="age" value="70"></property>
+		<property name="habitat" value="India, Mexico, China, Latin America" />
+		<property name="type" value="Tropical" />
+	</bean>
+
+	<bean id="tree04"
+		class="com.rollingstone.springframework.basic.real.life.examples.Tree">
+		<property name="name" value="Teak"></property>
+		<property name="height" value="25 Meters"></property>
+		<property name="age" value="70"></property>
+		<property name="habitat" value="India, Malaysia, Indonesia" />
+		<property name="type" value="Tropical" />
+	</bean>
+
+	<bean id="tree05"
+		class="com.rollingstone.springframework.basic.real.life.examples.Tree">
+		<property name="name" value="Oak"></property>
+		<property name="height" value="10 Meters"></property>
+		<property name="age" value="70"></property>
+		<property name="habitat" value="Europe and North America" />
+		<property name="type" value="Tropical" />
+	</bean>
+
+	<bean id="tree06"
+		class="com.rollingstone.springframework.basic.real.life.examples.Tree">
+		<property name="name" value="Willow"></property>
+		<property name="height" value="7 Meters"></property>
+		<property name="age" value="70"></property>
+		<property name="habitat" value="Europe and North America" />
+		<property name="type" value="Tropical" />
+	</bean>
+
+	<bean id="tree07"
+		class="com.rollingstone.springframework.basic.real.life.examples.Tree">
+		<property name="name" value="Mango"></property>
+		<property name="height" value="5 Meters"></property>
+		<property name="age" value="70"></property>
+		<property name="habitat" value="India, Mexico, China, Latin America" />
+		<property name="type" value="Tropical" />
+	</bean>
+
+	<bean id="tree08"
+		class="com.rollingstone.springframework.basic.real.life.examples.Tree">
+		<property name="name" value="Teak"></property>
+		<property name="height" value="25 Meters"></property>
+		<property name="age" value="70"></property>
+		<property name="habitat" value="India, Malaysia, Indonesia" />
+		<property name="type" value="Tropical" />
+	</bean>
+
+	<bean id="tree09"
+		class="com.rollingstone.springframework.basic.real.life.examples.Tree">
+		<property name="name" value="Oak"></property>
+		<property name="height" value="10 Meters"></property>
+		<property name="age" value="70"></property>
+		<property name="habitat" value="Europe and North America" />
+		<property name="type" value="Tropical" />
+	</bean>
+
+	<bean id="tree10"
+		class="com.rollingstone.springframework.basic.real.life.examples.Tree">
+		<property name="name" value="Willow"></property>
+		<property name="height" value="7 Meters"></property>
+		<property name="age" value="70"></property>
+		<property name="habitat" value="Europe and North America" />
+		<property name="type" value="Tropical" />
+	</bean>
+
+	<bean id="tree11"
+		class="com.rollingstone.springframework.basic.real.life.examples.Tree">
+		<property name="name" value="Mango"></property>
+		<property name="height" value="5 Meters"></property>
+		<property name="age" value="70"></property>
+		<property name="habitat" value="India, Mexico, China, Latin America" />
+		<property name="type" value="Tropical" />
+	</bean>
+
+	<bean id="tree12"
+		class="com.rollingstone.springframework.basic.real.life.examples.Tree">
+		<property name="name" value="Teak"></property>
+		<property name="height" value="25 Meters"></property>
+		<property name="age" value="70"></property>
+		<property name="habitat" value="India, Malaysia, Indonesia" />
+		<property name="type" value="Tropical" />
+	</bean>
+
+	<bean id="tree13"
+		class="com.rollingstone.springframework.basic.real.life.examples.Tree">
+		<property name="name" value="Oak"></property>
+		<property name="height" value="10 Meters"></property>
+		<property name="age" value="70"></property>
+		<property name="habitat" value="Europe and North America" />
+		<property name="type" value="Tropical" />
+	</bean>
+
+	<bean id="tree14"
+		class="com.rollingstone.springframework.basic.real.life.examples.Tree">
+		<property name="name" value="Willow"></property>
+		<property name="height" value="7 Meters"></property>
+		<property name="age" value="70"></property>
+		<property name="habitat" value="Europe and North America" />
+		<property name="type" value="Tropical" />
+	</bean>
+
+	<bean id="tree15"
+		class="com.rollingstone.springframework.basic.real.life.examples.Tree">
+		<property name="name" value="Mango"></property>
+		<property name="height" value="5 Meters"></property>
+		<property name="age" value="70"></property>
+		<property name="habitat" value="India, Mexico, China, Latin America" />
+		<property name="type" value="Tropical" />
+	</bean>
+
+	<bean id="tree16"
+		class="com.rollingstone.springframework.basic.real.life.examples.Tree">
+		<property name="name" value="Teak"></property>
+		<property name="height" value="25 Meters"></property>
+		<property name="age" value="70"></property>
+		<property name="habitat" value="India, Malaysia, Indonesia" />
+		<property name="type" value="Tropical" />
+	</bean>
+
+
+	<bean id="tree17"
+		class="com.rollingstone.springframework.basic.real.life.examples.Tree">
+		<property name="name" value="Oak"></property>
+		<property name="height" value="10 Meters"></property>
+		<property name="age" value="70"></property>
+		<property name="habitat" value="Europe and North America" />
+		<property name="type" value="Tropical" />
+	</bean>
+
+	<bean id="tree18"
+		class="com.rollingstone.springframework.basic.real.life.examples.Tree">
+		<property name="name" value="Willow"></property>
+		<property name="height" value="7 Meters"></property>
+		<property name="age" value="70"></property>
+		<property name="habitat" value="Europe and North America" />
+		<property name="type" value="Tropical" />
+	</bean>
+
+	<bean id="tree19"
+		class="com.rollingstone.springframework.basic.real.life.examples.Tree">
+		<property name="name" value="Mango"></property>
+		<property name="height" value="5 Meters"></property>
+		<property name="age" value="70"></property>
+		<property name="habitat" value="India, Mexico, China, Latin America" />
+		<property name="type" value="Tropical" />
+	</bean>
+
+	<bean id="tree20"
+		class="com.rollingstone.springframework.basic.real.life.examples.Tree">
+		<property name="name" value="Teak"></property>
+		<property name="height" value="25 Meters"></property>
+		<property name="age" value="70"></property>
+		<property name="habitat" value="India, Malaysia, Indonesia" />
+		<property name="type" value="Tropical" />
+	</bean>
+
+</beans>
+

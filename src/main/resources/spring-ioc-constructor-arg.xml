@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans  
+                http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+
+<bean id="dateFormat" class="java.text.SimpleDateFormat">
+		<constructor-arg value="yyyy-MM-dd" />
+	</bean>
+	
+	<bean id="customer01"
+		class="com.rollingstone.springframework.basic.ioc.contructor.injection.Customer">
+		<constructor-arg value="1" type="int"></constructor-arg>
+		<constructor-arg value="Steven" type="String"></constructor-arg>
+		<constructor-arg value="Smith" type="String"></constructor-arg>
+		<constructor-arg value="1993-01-01" type="java.util.Date"></constructor-arg>
+	</bean>
+
+
+<bean id="investment01"
+		class="com.rollingstone.springframework.basic.ioc.contructor.injection.Investment">
+		<constructor-arg index="0" value="1" type="java.lang.String"></constructor-arg>
+		<constructor-arg index="1" value="Rental Property" type="java.lang.String"></constructor-arg>
+		<constructor-arg index="2" value="Rental Property" type="java.lang.String"></constructor-arg>
+		<property name="investmentStartDate">
+			<ref bean="localDate01" />
+		</property>
+		<property name="invetsmentMaturityDate">
+			<ref bean="localDate02" />
+		</property>
+	</bean>
+	
+	
+	<bean id="localDate01"
+		class="com.rollingstone.springframework.basic.ioc.contructor.injection.LocalDateFactory"
+		factory-method="createLocalDate">
+		<constructor-arg value="1993-01-01" />
+	</bean>
+	
+	<bean id="localDate02"
+		class="com.rollingstone.springframework.basic.ioc.contructor.injection.LocalDateFactory"
+		factory-method="createLocalDate">
+		<constructor-arg value="2013-01-01" />
+	</bean>
+	
+</beans>  

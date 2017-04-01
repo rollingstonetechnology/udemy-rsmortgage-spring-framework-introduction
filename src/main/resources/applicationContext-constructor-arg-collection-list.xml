@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	   http://www.springframework.org/schema/beans/spring-beans.xsd 
+	   http://www.springframework.org/schema/aop 
+	   http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+<bean id="localDate01"
+		class="com.rollingstone.springframework.basic.ioc.contructor.injection.LocalDateFactory"
+		factory-method="createLocalDate">
+		<constructor-arg value="1975-01-14" />
+	</bean>
+	
+	<bean id="mfgDate"
+		class="com.rollingstone.springframework.basic.ioc.contructor.injection.LocalDateFactory"
+		factory-method="createLocalDate">
+		<constructor-arg value="2017-03-24" />
+	</bean>
+
+	<bean id="expDate"
+		class="com.rollingstone.springframework.basic.ioc.contructor.injection.LocalDateFactory"
+		factory-method="createLocalDate">
+		<constructor-arg value="2017-06-24" />
+	</bean>
+
+	<bean id="cartOfStrings" class="com.rollingstone.springframework.basic.ioc.contructor.injection.collection.ShoppingCart">
+		<constructor-arg value="01"></constructor-arg>
+		<constructor-arg>
+			<ref bean="localDate01"/>
+		</constructor-arg>
+		<constructor-arg>
+			<list>
+				<value>Milk</value>
+				<value>Potatoe</value>
+				<value>Pizza</value>
+				<value>Cookies</value>
+				<value>Ice Cream</value>
+			</list>
+		</constructor-arg>
+	</bean>
+	
+	<bean id="cartOfObjects" class="com.rollingstone.springframework.basic.ioc.contructor.injection.collection.ShoppingCartWithItemObjects">
+		<constructor-arg value="01"></constructor-arg>
+		<constructor-arg>
+			<ref bean="localDate01"/>
+		</constructor-arg>
+		<constructor-arg>
+			<list>
+				<ref bean="milk" />
+				<ref bean="potatoe" />
+				<ref bean="pizza" />
+				<ref bean="cookies" />
+				<ref bean="icecream" />
+			</list>
+		</constructor-arg>
+	</bean>
+
+<bean id="milk" class="com.rollingstone.springframework.basic.ioc.contructor.injection.collection.CartItem">
+		<constructor-arg value="01"></constructor-arg>
+		<constructor-arg value="Milk"></constructor-arg>
+		<constructor-arg index="2">
+			<ref bean="mfgDate"/>
+		</constructor-arg>
+		<constructor-arg index="3">
+			<ref bean="expDate"/>
+		</constructor-arg>
+</bean>
+
+<bean id="potatoe" class="com.rollingstone.springframework.basic.ioc.contructor.injection.collection.CartItem">
+		<constructor-arg value="02"></constructor-arg>
+		<constructor-arg value="Potatoe"></constructor-arg>
+			<constructor-arg index="2">
+			<ref bean="mfgDate"/>
+		</constructor-arg>
+		<constructor-arg index="3">
+			<ref bean="expDate"/>
+		</constructor-arg>
+</bean>
+
+<bean id="pizza" class="com.rollingstone.springframework.basic.ioc.contructor.injection.collection.CartItem">
+		<constructor-arg value="03"></constructor-arg>
+		<constructor-arg value="Pizza"></constructor-arg>
+		<constructor-arg index="2">
+			<ref bean="mfgDate"/>
+		</constructor-arg>
+		<constructor-arg index="3">
+			<ref bean="expDate"/>
+		</constructor-arg>
+</bean>
+
+<bean id="cookies" class="com.rollingstone.springframework.basic.ioc.contructor.injection.collection.CartItem">
+		<constructor-arg value="04"></constructor-arg>
+		<constructor-arg value="Cookies"></constructor-arg>
+		<constructor-arg index="2">
+			<ref bean="mfgDate"/>
+		</constructor-arg>
+		<constructor-arg index="3">
+			<ref bean="expDate"/>
+		</constructor-arg>
+</bean>
+
+<bean id="icecream" class="com.rollingstone.springframework.basic.ioc.contructor.injection.collection.CartItem">
+		<constructor-arg value="05"></constructor-arg>
+		<constructor-arg value="Ice Cream"></constructor-arg>
+		<constructor-arg index="2">
+			<ref bean="mfgDate"/>
+		</constructor-arg>
+		<constructor-arg index="3">
+			<ref bean="expDate"/>
+		</constructor-arg>
+</bean>
+
+</beans>

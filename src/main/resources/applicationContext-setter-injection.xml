@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans  
+                http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+
+	<bean id="dateOfBirth"
+		class="com.rollingstone.springframework.basic.ioc.contructor.injection.LocalDateFactory"
+		factory-method="createLocalDate">
+		<constructor-arg value="2017-03-24" />
+	</bean>
+	
+	<bean id="bsStarted"
+		class="com.rollingstone.springframework.basic.ioc.contructor.injection.LocalDateFactory"
+		factory-method="createLocalDate">
+		<constructor-arg value="2012-05-01" />
+	</bean>
+	
+	<bean id="bsCompleted"
+		class="com.rollingstone.springframework.basic.ioc.contructor.injection.LocalDateFactory"
+		factory-method="createLocalDate">
+		<constructor-arg value="2014-07-24" />
+	</bean>
+	
+	<bean id="msStarted"
+		class="com.rollingstone.springframework.basic.ioc.contructor.injection.LocalDateFactory"
+		factory-method="createLocalDate">
+		<constructor-arg value="2014-08-01" />
+	</bean>
+	
+	<bean id="msCompleted"
+		class="com.rollingstone.springframework.basic.ioc.contructor.injection.LocalDateFactory"
+		factory-method="createLocalDate">
+		<constructor-arg value="2015-10-11" />
+	</bean>
+
+
+	<bean id="address01"
+		class="com.rollingstone.springframework.basic.ioc.setter.injection.Address">
+		<property name="addressID" value="1"></property>
+		<property name="streetAddress" value="10 InfinteLoop"></property>
+		<property name="city" value="Palo Alto"></property>
+		<property name="state" value="CA"></property>
+		<property name="zipCode" value="94567"></property>
+	</bean>
+
+	<bean id="customer"
+		class="com.rollingstone.springframework.basic.ioc.setter.injection.Customer">
+		<property name="customerId">
+			<value>1</value>
+		</property>
+		<property name="firstName">
+			<value>Sophia</value>
+		</property>
+		<property name="lastName">
+			<value>Jhonson</value>
+		</property>
+		<property name="dob">
+			<ref bean="dateOfBirth" />
+		</property>
+	</bean>
+	
+	<bean id="education01"
+		class="com.rollingstone.springframework.basic.ioc.setter.injection.Education">
+		<property name="educationID">
+			<value>1</value>
+		</property>
+		<property name="degreeName">
+			<value>Bachalors</value>
+		</property>
+		<property name="degreeDescription">
+			<value>Bachalor Of Science (BS)</value>
+		</property>
+		<property name="started">
+			<ref bean="bsStarted"/>
+		</property>
+		<property name="completed">
+			<ref bean="bsCompleted"/>
+		</property>
+		<property name="hasReceivedDegree">
+			<value>true</value>
+		</property>
+		<property name="univeersity">
+			<value>American University of Reinvention</value>
+		</property>
+		<property name="gpa">
+			<value>3.961</value>
+		</property>		
+	</bean>
+	
+	<bean id="education02"
+		class="com.rollingstone.springframework.basic.ioc.setter.injection.Education">
+		<property name="educationID">
+			<value>2</value>
+		</property>
+		<property name="degreeName">
+			<value>Masters</value>
+		</property>
+		<property name="degreeDescription">
+			<value>MAsters Of Science (MS)</value>
+		</property>
+		<property name="started">
+			<ref bean="msStarted"/>
+		</property>
+		<property name="completed">
+			<ref bean="msCompleted"/>
+		</property>
+		<property name="hasReceivedDegree">
+			<value>true</value>
+		</property>
+		<property name="univeersity">
+			<value>American University of Reinvention</value>
+		</property>
+		<property name="gpa">
+			<value>3.981</value>
+		</property>		
+	</bean>
+
+	<bean id="customerWithAddress"
+		class="com.rollingstone.springframework.basic.ioc.setter.injection.CustomerWithAddress">
+		<property name="customerId">
+			<value>1</value>
+		</property>
+		<property name="firstName">
+			<value>Sophia</value>
+		</property>
+		<property name="lastName">
+			<value>Jhonson</value>
+		</property>
+		<property name="dob">
+			<ref bean="dateOfBirth" />
+		</property>
+		<property name="address">
+			<ref bean="address01" />
+		</property>
+
+		<property name="phoneNumbers">
+			<list>
+				<value>773-999-9999</value>
+				<value>312-999-9999</value>
+				<value>309-999-9999</value>
+			</list>
+		</property>
+		
+		<property name="degrees">
+			<list>
+				<ref bean="education01"/>
+				<ref bean="education02"/>
+			</list>
+		</property>
+	</bean>
+
+</beans>

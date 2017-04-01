@@ -1,0 +1,1686 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- <beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+	http://www.springframework.org/schema/aop
+	http://www.springframework.org/schema/aop/spring-aop-3.0.xsd 
+	http://www.springframework.org/schema/util
+    http://www.springframework.org/schema/util/spring-util-2.5.xsd" > -->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+       http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+       http://www.springframework.org/schema/aop
+	   http://www.springframework.org/schema/aop/spring-aop-3.0.xsd 
+       http://www.springframework.org/schema/util 
+       http://www.springframework.org/schema/util/spring-util-3.0.xsd">
+       
+	<aop:aspectj-autoproxy />
+
+	<bean id="airportOperations"
+		class="com.rollingstone.springframework.aop.example.AirportOperationsImpl" />
+
+	<bean id="trackAirportOperation"
+		class="com.rollingstone.springframework.aop.example.AirportOperationCommonTracker"></bean>
+
+	<bean
+		class="org.springframework.aop.aspectj.annotation.AnnotationAwareAspectJAutoProxyCreator"></bean>
+
+
+	<bean id="startedOperation"
+		class="com.rollingstone.springframework.basic.ioc.contructor.injection.LocalDateFactory"
+		factory-method="createLocalDate">
+		<constructor-arg value="1975-01-14" />
+	</bean>
+
+	<bean id="commissionDate"
+		class="com.rollingstone.springframework.basic.ioc.contructor.injection.LocalDateFactory"
+		factory-method="createLocalDate">
+		<constructor-arg value="2009-01-01" />
+	</bean>
+
+	<bean id="departureTime"
+		class="com.rollingstone.springframework.basic.ioc.contructor.injection.LocalDateTimeFactory"
+		factory-method="createLocalDateTime">
+		<constructor-arg value="2017-03-04 11:30" />
+	</bean>
+
+	<bean id="arrivalTime"
+		class="com.rollingstone.springframework.basic.ioc.contructor.injection.LocalDateTimeFactory"
+		factory-method="createLocalDateTime">
+		<constructor-arg value="2017-04-04 11:30" />
+	</bean>
+
+	<bean id="dateOfBirth"
+		class="com.rollingstone.springframework.basic.ioc.contructor.injection.LocalDateFactory"
+		factory-method="createLocalDate">
+		<constructor-arg value="1993-01-14" />
+	</bean>
+
+
+	<bean id="flight01" class="com.rollingstone.springframework.aop.example.Flight">
+		<constructor-arg index="0" value="01"></constructor-arg>
+		<constructor-arg index="1" value="BA798"></constructor-arg>
+		<constructor-arg index="2">
+			<ref bean="airport01" />
+		</constructor-arg>
+		<constructor-arg index="3">
+			<ref bean="airport02" />
+		</constructor-arg>
+		<constructor-arg index="4">
+			<ref bean="departureTime" />
+		</constructor-arg>
+		<constructor-arg index="5">
+			<ref bean="arrivalTime" />
+		</constructor-arg>
+		<constructor-arg index="6">
+			<ref bean="airplane01" />
+		</constructor-arg>
+		<constructor-arg index="7">
+			<list>
+				<ref bean="pilot01" />
+				<ref bean="pilot02" />
+			</list>
+		</constructor-arg>
+		<constructor-arg index="8">
+			<list>
+				<ref bean="flightAttendant01" />
+				<ref bean="flightAttendant02" />
+			</list>
+		</constructor-arg>
+	</bean>
+
+	<bean id="flight02" class="com.rollingstone.springframework.aop.example.Flight">
+		<constructor-arg index="0" value="02"></constructor-arg>
+		<constructor-arg index="1" value="UA878"></constructor-arg>
+		<constructor-arg index="2">
+			<ref bean="airport02" />
+		</constructor-arg>
+		<constructor-arg index="3">
+			<ref bean="airport03" />
+		</constructor-arg>
+		<constructor-arg index="4">
+			<ref bean="departureTime" />
+		</constructor-arg>
+		<constructor-arg index="5">
+			<ref bean="arrivalTime" />
+		</constructor-arg>
+		<constructor-arg index="6">
+			<ref bean="airplane02" />
+		</constructor-arg>
+		<constructor-arg index="7">
+			<list>
+				<ref bean="pilot03" />
+				<ref bean="pilot04" />
+			</list>
+		</constructor-arg>
+		<constructor-arg index="8">
+			<list>
+				<ref bean="flightAttendant03" />
+				<ref bean="flightAttendant04" />
+			</list>
+		</constructor-arg>
+	</bean>
+
+	<bean id="flight03" class="com.rollingstone.springframework.aop.example.Flight">
+		<constructor-arg index="0" value="03"></constructor-arg>
+		<constructor-arg index="1" value="NW878"></constructor-arg>
+		<constructor-arg index="2">
+			<ref bean="airport03" />
+		</constructor-arg>
+		<constructor-arg index="3">
+			<ref bean="airport04" />
+		</constructor-arg>
+		<constructor-arg index="4">
+			<ref bean="departureTime" />
+		</constructor-arg>
+		<constructor-arg index="5">
+			<ref bean="arrivalTime" />
+		</constructor-arg>
+		<constructor-arg index="6">
+			<ref bean="airplane03" />
+		</constructor-arg>
+		<constructor-arg index="7">
+			<list>
+				<ref bean="pilot04" />
+				<ref bean="pilot05" />
+			</list>
+		</constructor-arg>
+		<constructor-arg index="8">
+			<list>
+				<ref bean="flightAttendant05" />
+				<ref bean="flightAttendant06" />
+			</list>
+		</constructor-arg>
+	</bean>
+
+	<bean id="flight04" class="com.rollingstone.springframework.aop.example.Flight">
+		<constructor-arg index="0" value="04"></constructor-arg>
+		<constructor-arg index="1" value="UA878"></constructor-arg>
+		<constructor-arg index="2">
+			<ref bean="airport04" />
+		</constructor-arg>
+		<constructor-arg index="3">
+			<ref bean="airport05" />
+		</constructor-arg>
+		<constructor-arg index="4">
+			<ref bean="departureTime" />
+		</constructor-arg>
+		<constructor-arg index="5">
+			<ref bean="arrivalTime" />
+		</constructor-arg>
+		<constructor-arg index="6">
+			<ref bean="airplane04" />
+		</constructor-arg>
+		<constructor-arg index="7">
+			<list>
+				<ref bean="pilot06" />
+				<ref bean="pilot07" />
+			</list>
+		</constructor-arg>
+		<constructor-arg index="8">
+			<list>
+				<ref bean="flightAttendant07" />
+				<ref bean="flightAttendant08" />
+			</list>
+		</constructor-arg>
+	</bean>
+
+
+
+	<bean id="airplane01" class="com.rollingstone.springframework.aop.example.Airplane">
+		<constructor-arg index="0" type="long">
+			<value>1</value>
+		</constructor-arg>
+		<constructor-arg index="1" type="java.lang.String"
+			value="Boeing777" />
+		<constructor-arg index="2" type="int">
+			<value>7000</value>
+		</constructor-arg>
+		<constructor-arg index="3" type="java.time.LocalDate">
+			<ref bean="commissionDate" />
+		</constructor-arg>
+	</bean>
+
+	<bean id="airplane02" class="com.rollingstone.springframework.aop.example.Airplane">
+		<constructor-arg index="0" type="long">
+			<value>2</value>
+		</constructor-arg>
+		<constructor-arg index="1" type="java.lang.String">
+			<value>Airbus A380</value>
+		</constructor-arg>
+		<constructor-arg index="2" type="int">
+			<value>6000</value>
+		</constructor-arg>
+		<constructor-arg index="3" type="java.time.LocalDate">
+			<ref bean="commissionDate" />
+		</constructor-arg>
+	</bean>
+
+	<bean id="airplane03" class="com.rollingstone.springframework.aop.example.Airplane">
+		<constructor-arg index="0" type="long">
+			<value>3</value>
+		</constructor-arg>
+		<constructor-arg index="1" type="java.lang.String">
+			<value>Airbus A380</value>
+		</constructor-arg>
+		<constructor-arg index="2" type="int">
+			<value>5000</value>
+		</constructor-arg>
+		<constructor-arg index="3">
+			<ref bean="commissionDate" />
+		</constructor-arg>
+	</bean>
+
+	<bean id="airplane04" class="com.rollingstone.springframework.aop.example.Airplane">
+		<constructor-arg index="0" type="long">
+			<value>4</value>
+		</constructor-arg>
+		<constructor-arg index="1" type="java.lang.String">
+			<value>Boeing 777</value>
+		</constructor-arg>
+		<constructor-arg index="2" type="int">
+			<value>3000</value>
+		</constructor-arg>
+		<constructor-arg index="3">
+			<ref bean="commissionDate" />
+		</constructor-arg>
+	</bean>
+
+	<bean id="airplane05" class="com.rollingstone.springframework.aop.example.Airplane">
+		<constructor-arg index="0" type="long">
+			<value>5</value>
+		</constructor-arg>
+		<constructor-arg index="1" type="java.lang.String">
+			<value>Boeing 777</value>
+		</constructor-arg>
+		<constructor-arg index="2" type="int">
+			<value>7000</value>
+		</constructor-arg>
+		<constructor-arg index="3">
+			<ref bean="commissionDate" />
+		</constructor-arg>
+	</bean>
+
+	<bean id="airline01" class="com.rollingstone.springframework.aop.example.Airline">
+		<constructor-arg index="0" value="01"></constructor-arg>
+		<constructor-arg index="1" value="0001"></constructor-arg>
+		<constructor-arg index="2" value="United Airways"></constructor-arg>
+		<constructor-arg index="3">
+			<ref bean="startedOperation" />
+		</constructor-arg>
+		<constructor-arg index="4" value="New York, NY"></constructor-arg>
+	</bean>
+
+	<bean id="airline02" class="com.rollingstone.springframework.aop.example.Airline">
+		<constructor-arg index="0" value="02"></constructor-arg>
+		<constructor-arg index="1" value="0002"></constructor-arg>
+		<constructor-arg index="2" value="American Airways"></constructor-arg>
+		<constructor-arg index="3">
+			<ref bean="startedOperation" />
+		</constructor-arg>
+		<constructor-arg index="4" value="Chicago, IL"></constructor-arg>
+	</bean>
+
+
+	<bean id="airline03" class="com.rollingstone.springframework.aop.example.Airline">
+		<constructor-arg index="0" value="03"></constructor-arg>
+		<constructor-arg index="1" value="0003"></constructor-arg>
+		<constructor-arg index="2" value="North West Airways"></constructor-arg>
+		<constructor-arg index="3">
+			<ref bean="startedOperation" />
+		</constructor-arg>
+		<constructor-arg index="4" value="San Francisco, CA"></constructor-arg>
+	</bean>
+
+
+	<bean id="airport01" class="com.rollingstone.springframework.aop.example.Airport">
+		<constructor-arg index="0" value="01"></constructor-arg>
+		<constructor-arg index="1" value="ORD"></constructor-arg>
+		<constructor-arg index="2"
+			value="Chicago Ohare International Airport"></constructor-arg>
+		<constructor-arg index="3" value="USA"></constructor-arg>
+		<constructor-arg index="4" value="Chicago"></constructor-arg>
+		<constructor-arg index="5" value="Ohare Address"></constructor-arg>
+	</bean>
+
+	<bean id="airport02" class="com.rollingstone.springframework.aop.example.Airport">
+		<constructor-arg index="0" value="02"></constructor-arg>
+		<constructor-arg index="1" value="JFK"></constructor-arg>
+		<constructor-arg index="2" value="JFK International Airport"></constructor-arg>
+		<constructor-arg index="3" value="USA"></constructor-arg>
+		<constructor-arg index="4" value="New York"></constructor-arg>
+		<constructor-arg index="5" value="JFK Address"></constructor-arg>
+	</bean>
+
+	<bean id="airport03" class="com.rollingstone.springframework.aop.example.Airport">
+		<constructor-arg index="0" value="03"></constructor-arg>
+		<constructor-arg index="1" value="LAX"></constructor-arg>
+		<constructor-arg index="2" value="LAX International Airport"></constructor-arg>
+		<constructor-arg index="3" value="USA"></constructor-arg>
+		<constructor-arg index="4" value="Los Angeles"></constructor-arg>
+		<constructor-arg index="5" value="LAX Address"></constructor-arg>
+	</bean>
+
+	<!-- <bean id="airport04" class="com.rollingstone.springframework.aop.example.Airport"> 
+		<constructor-arg index="0" value="04"></constructor-arg> <constructor-arg 
+		index="1" value="DEL"></constructor-arg> <constructor-arg index="2" value="New 
+		Delhi International Airport"></constructor-arg> <constructor-arg index="3" 
+		value="India"></constructor-arg> <constructor-arg index="5" value="New Delhi"></constructor-arg> 
+		<constructor-arg index="6" value="DEL Address"></constructor-arg> </bean> -->
+	<bean id="airport04" class="com.rollingstone.springframework.aop.example.Airport">
+		<constructor-arg index="0" value="04"></constructor-arg>
+		<constructor-arg index="1" value="DEL"></constructor-arg>
+		<constructor-arg index="2"
+			value="New Delhi International Airport"></constructor-arg>
+		<constructor-arg index="3" value="India"></constructor-arg>
+		<constructor-arg index="4" value="New Delhi"></constructor-arg>
+		<constructor-arg index="5" value="DEL Address"></constructor-arg>
+	</bean>
+
+
+	<bean id="airport05" class="com.rollingstone.springframework.aop.example.Airport">
+		<constructor-arg index="0" value="05"></constructor-arg>
+		<constructor-arg index="1" value="SFO"></constructor-arg>
+		<constructor-arg index="2"
+			value="San Francisco International Airport"></constructor-arg>
+		<constructor-arg index="3" value="USA"></constructor-arg>
+		<constructor-arg index="4" value="San Francisco"></constructor-arg>
+		<constructor-arg index="5" value="SFO Address"></constructor-arg>
+	</bean>
+
+	<bean id="flightAttendant01"
+		class="com.rollingstone.springframework.aop.example.FlightAttendant">
+		<constructor-arg index="0" type="long">
+			<value>1</value>
+		</constructor-arg>
+		<constructor-arg index="1" type="java.lang.String">
+			<value>00001</value>
+		</constructor-arg>
+		<constructor-arg index="2" type="java.lang.String">
+			<value>Ashley</value>
+		</constructor-arg>
+		<constructor-arg index="3" type="java.lang.String">
+			<value>Bentley</value>
+		</constructor-arg>
+		<constructor-arg index="4" type="java.lang.String">
+			<value>
+			</value>
+		</constructor-arg>
+		<constructor-arg index="5" type="java.lang.String">
+			<value>123-567-3456</value>
+		</constructor-arg>
+		<constructor-arg index="6" type="java.time.LocalDate">
+			<ref bean="dateOfBirth" />
+		</constructor-arg>
+		<constructor-arg index="7" type="int">
+			<value>24</value>
+		</constructor-arg>
+		<constructor-arg index="8" type="java.lang.String">
+			<value>F</value>
+		</constructor-arg>
+	</bean>
+
+	<bean id="flightAttendant02"
+		class="com.rollingstone.springframework.aop.example.FlightAttendant">
+		<constructor-arg index="0" type="long">
+			<value>2</value>
+		</constructor-arg>
+		<constructor-arg index="1" type="java.lang.String">
+			<value>00002</value>
+		</constructor-arg>
+		<constructor-arg index="2" type="java.lang.String">
+			<value>Anjelina</value>
+		</constructor-arg>
+		<constructor-arg index="3" type="java.lang.String">
+			<value>Smith</value>
+		</constructor-arg>
+		<constructor-arg index="4" type="java.lang.String">
+			<value>
+			</value>
+		</constructor-arg>
+		<constructor-arg index="5" type="java.lang.String">
+			<value>321-567-3456</value>
+		</constructor-arg>
+		<constructor-arg index="6" type="java.time.LocalDate">
+			<ref bean="dateOfBirth" />
+		</constructor-arg>
+		<constructor-arg index="7" type="int">
+			<value>24</value>
+		</constructor-arg>
+		<constructor-arg index="8" type="java.lang.String">
+			<value>F</value>
+		</constructor-arg>
+	</bean>
+
+	<bean id="flightAttendant03"
+		class="com.rollingstone.springframework.aop.example.FlightAttendant">
+		<constructor-arg index="0" type="long">
+			<value>3</value>
+		</constructor-arg>
+		<constructor-arg index="1" type="java.lang.String">
+			<value>00003</value>
+		</constructor-arg>
+		<constructor-arg index="2" type="java.lang.String">
+			<value>Sabrina</value>
+		</constructor-arg>
+		<constructor-arg index="3" type="java.lang.String">
+			<value>Orlando</value>
+		</constructor-arg>
+		<constructor-arg index="4" type="java.lang.String">
+			<value>
+			</value>
+		</constructor-arg>
+		<constructor-arg index="5" type="java.lang.String">
+			<value>123-567-3456</value>
+		</constructor-arg>
+		<constructor-arg index="6" type="java.time.LocalDate">
+			<ref bean="dateOfBirth" />
+		</constructor-arg>
+		<constructor-arg index="7" type="int">
+			<value>24</value>
+		</constructor-arg>
+		<constructor-arg index="8" type="java.lang.String">
+			<value>F</value>
+		</constructor-arg>
+	</bean>
+
+	<bean id="flightAttendant04"
+		class="com.rollingstone.springframework.aop.example.FlightAttendant">
+		<constructor-arg index="0" type="long">
+			<value>4</value>
+		</constructor-arg>
+		<constructor-arg index="1" type="java.lang.String">
+			<value>00004</value>
+		</constructor-arg>
+		<constructor-arg index="2" type="java.lang.String">
+			<value>Lisa</value>
+		</constructor-arg>
+		<constructor-arg index="3" type="java.lang.String">
+			<value>Jones</value>
+		</constructor-arg>
+		<constructor-arg index="4" type="java.lang.String">
+			<value>
+			</value>
+		</constructor-arg>
+		<constructor-arg index="5" type="java.lang.String">
+			<value>123-567-3456</value>
+		</constructor-arg>
+		<constructor-arg index="6" type="java.time.LocalDate">
+			<ref bean="dateOfBirth" />
+		</constructor-arg>
+		<constructor-arg index="7" type="int">
+			<value>24</value>
+		</constructor-arg>
+		<constructor-arg index="8" type="java.lang.String">
+			<value>F</value>
+		</constructor-arg>
+	</bean>
+
+	<bean id="flightAttendant05"
+		class="com.rollingstone.springframework.aop.example.FlightAttendant">
+		<constructor-arg index="0" type="long">
+			<value>5</value>
+		</constructor-arg>
+		<constructor-arg index="1" type="java.lang.String">
+			<value>00005</value>
+		</constructor-arg>
+		<constructor-arg index="2" type="java.lang.String">
+			<value>Salina</value>
+		</constructor-arg>
+		<constructor-arg index="3" type="java.lang.String">
+			<value>Jhonson</value>
+		</constructor-arg>
+		<constructor-arg index="4" type="java.lang.String">
+			<value>
+			</value>
+		</constructor-arg>
+		<constructor-arg index="5" type="java.lang.String">
+			<value>123-567-3456</value>
+		</constructor-arg>
+		<constructor-arg index="6" type="java.time.LocalDate">
+			<ref bean="dateOfBirth" />
+		</constructor-arg>
+		<constructor-arg index="7" type="int">
+			<value>24</value>
+		</constructor-arg>
+		<constructor-arg index="8" type="java.lang.String">
+			<value>F</value>
+		</constructor-arg>
+	</bean>
+
+	<bean id="flightAttendant06"
+		class="com.rollingstone.springframework.aop.example.FlightAttendant">
+		<constructor-arg index="0" type="long">
+			<value>6</value>
+		</constructor-arg>
+		<constructor-arg index="1" type="java.lang.String">
+			<value>00006</value>
+		</constructor-arg>
+		<constructor-arg index="2" type="java.lang.String">
+			<value>Cathy</value>
+		</constructor-arg>
+		<constructor-arg index="3" type="java.lang.String">
+			<value>Smith</value>
+		</constructor-arg>
+		<constructor-arg index="4" type="java.lang.String">
+			<value>
+			</value>
+		</constructor-arg>
+		<constructor-arg index="5" type="java.lang.String">
+			<value>123-567-3456</value>
+		</constructor-arg>
+		<constructor-arg index="6" type="java.time.LocalDate">
+			<ref bean="dateOfBirth" />
+		</constructor-arg>
+		<constructor-arg index="7" type="int">
+			<value>24</value>
+		</constructor-arg>
+		<constructor-arg index="8" type="java.lang.String">
+			<value>F</value>
+		</constructor-arg>
+	</bean>
+
+	<bean id="flightAttendant07"
+		class="com.rollingstone.springframework.aop.example.FlightAttendant">
+		<constructor-arg index="0" type="long">
+			<value>7</value>
+		</constructor-arg>
+		<constructor-arg index="1" type="java.lang.String">
+			<value>00007</value>
+		</constructor-arg>
+		<constructor-arg index="2" type="java.lang.String">
+			<value>Tiffany</value>
+		</constructor-arg>
+		<constructor-arg index="3" type="java.lang.String">
+			<value>Williams</value>
+		</constructor-arg>
+		<constructor-arg index="4" type="java.lang.String">
+			<value>
+			</value>
+		</constructor-arg>
+		<constructor-arg index="5" type="java.lang.String">
+			<value>123-567-3456</value>
+		</constructor-arg>
+		<constructor-arg index="6" type="java.time.LocalDate">
+			<ref bean="dateOfBirth" />
+		</constructor-arg>
+		<constructor-arg index="7" type="int">
+			<value>24</value>
+		</constructor-arg>
+		<constructor-arg index="8" type="java.lang.String">
+			<value>F</value>
+		</constructor-arg>
+	</bean>
+
+	<bean id="flightAttendant08"
+		class="com.rollingstone.springframework.aop.example.FlightAttendant">
+		<constructor-arg index="0" type="long">
+			<value>8</value>
+		</constructor-arg>
+		<constructor-arg index="1" type="java.lang.String">
+			<value>00008</value>
+		</constructor-arg>
+		<constructor-arg index="2" type="java.lang.String">
+			<value>Susan</value>
+		</constructor-arg>
+		<constructor-arg index="3" type="java.lang.String">
+			<value>Collins</value>
+		</constructor-arg>
+		<constructor-arg index="4" type="java.lang.String">
+			<value>
+			</value>
+		</constructor-arg>
+		<constructor-arg index="5" type="java.lang.String">
+			<value>124-567-3456</value>
+		</constructor-arg>
+		<constructor-arg index="6" type="java.time.LocalDate">
+			<ref bean="dateOfBirth" />
+		</constructor-arg>
+		<constructor-arg index="7" type="int">
+			<value>24</value>
+		</constructor-arg>
+		<constructor-arg index="8" type="java.lang.String">
+			<value>F</value>
+		</constructor-arg>
+	</bean>
+
+
+	<bean id="pilot01" class="com.rollingstone.springframework.aop.example.Pilot">
+		<constructor-arg index="0" value="01"></constructor-arg>
+		<constructor-arg index="1" value="0001"></constructor-arg>
+		<constructor-arg index="2" value="Scott"></constructor-arg>
+		<constructor-arg index="3" value="Urman"></constructor-arg>
+		<constructor-arg index="4" value=""></constructor-arg>
+		<constructor-arg index="5">
+			<ref bean="dateOfBirth" />
+		</constructor-arg>
+		<constructor-arg index="6" type="int">
+			<value>24</value>
+		</constructor-arg>
+		<constructor-arg index="7" value="F"></constructor-arg>
+		<constructor-arg index="8" type="int">
+			<value>6000</value>
+		</constructor-arg>
+	</bean>
+
+	<bean id="pilot02" class="com.rollingstone.springframework.aop.example.Pilot">
+		<constructor-arg index="0" value="02"></constructor-arg>
+		<constructor-arg index="1" value="0002"></constructor-arg>
+		<constructor-arg index="2" value="David"></constructor-arg>
+		<constructor-arg index="3" value="Harrington"></constructor-arg>
+		<constructor-arg index="4" value=""></constructor-arg>
+		<constructor-arg index="5">
+			<ref bean="dateOfBirth" />
+		</constructor-arg>
+		<constructor-arg index="6" value="24"></constructor-arg>
+		<constructor-arg index="7" value="M"></constructor-arg>
+		<constructor-arg index="8" type="int">
+			<value>6000</value>
+		</constructor-arg>
+	</bean>
+
+	<bean id="pilot03" class="com.rollingstone.springframework.aop.example.Pilot">
+		<constructor-arg index="0" value="03"></constructor-arg>
+		<constructor-arg index="1" value="0003"></constructor-arg>
+		<constructor-arg index="2" value="Soumitra"></constructor-arg>
+		<constructor-arg index="3" value="Chatterjee"></constructor-arg>
+		<constructor-arg index="4" value=""></constructor-arg>
+		<constructor-arg index="5">
+			<ref bean="dateOfBirth" />
+		</constructor-arg>
+		<constructor-arg index="6" value="24"></constructor-arg>
+		<constructor-arg index="7" value="M"></constructor-arg>
+		<constructor-arg index="8" type="int">
+			<value>6000</value>
+		</constructor-arg>
+	</bean>
+
+	<bean id="pilot04" class="com.rollingstone.springframework.aop.example.Pilot">
+		<constructor-arg index="0" value="04"></constructor-arg>
+		<constructor-arg index="1" value="0004"></constructor-arg>
+		<constructor-arg index="2" value="Sophia"></constructor-arg>
+		<constructor-arg index="3" value="Smith"></constructor-arg>
+		<constructor-arg index="4" value=""></constructor-arg>
+		<constructor-arg index="5">
+			<ref bean="dateOfBirth" />
+		</constructor-arg>
+		<constructor-arg index="6" value="24"></constructor-arg>
+		<constructor-arg index="7" value="F"></constructor-arg>
+		<constructor-arg index="8" type="int">
+			<value>6000</value>
+		</constructor-arg>
+	</bean>
+
+	<bean id="pilot05" class="com.rollingstone.springframework.aop.example.Pilot">
+		<constructor-arg index="0" value="05"></constructor-arg>
+		<constructor-arg index="1" value="0005"></constructor-arg>
+		<constructor-arg index="2" value="Randal"></constructor-arg>
+		<constructor-arg index="3" value="Jhonson"></constructor-arg>
+		<constructor-arg index="4" value=""></constructor-arg>
+		<constructor-arg index="5">
+			<ref bean="dateOfBirth" />
+		</constructor-arg>
+		<constructor-arg index="6" value="24"></constructor-arg>
+		<constructor-arg index="7" value="F"></constructor-arg>
+		<constructor-arg index="8" type="int">
+			<value>6000</value>
+		</constructor-arg>
+	</bean>
+
+	<bean id="pilot06" class="com.rollingstone.springframework.aop.example.Pilot">
+		<constructor-arg index="0" value="06"></constructor-arg>
+		<constructor-arg index="1" value="0006"></constructor-arg>
+		<constructor-arg index="2" value="Olivia"></constructor-arg>
+		<constructor-arg index="3" value="Shering"></constructor-arg>
+		<constructor-arg index="4" value=""></constructor-arg>
+		<constructor-arg index="5">
+			<ref bean="dateOfBirth" />
+		</constructor-arg>
+		<constructor-arg index="6" value="24"></constructor-arg>
+		<constructor-arg index="7" value="F"></constructor-arg>
+		<constructor-arg index="8" type="int">
+			<value>6000</value>
+		</constructor-arg>
+	</bean>
+
+	<bean id="pilot07" class="com.rollingstone.springframework.aop.example.Pilot">
+		<constructor-arg index="0" value="07"></constructor-arg>
+		<constructor-arg index="1" value="0007"></constructor-arg>
+		<constructor-arg index="2" value="Anthony"></constructor-arg>
+		<constructor-arg index="3" value="George"></constructor-arg>
+		<constructor-arg index="4" value=""></constructor-arg>
+		<constructor-arg index="5">
+			<ref bean="dateOfBirth" />
+		</constructor-arg>
+		<constructor-arg index="6" value="24"></constructor-arg>
+		<constructor-arg index="7" value="F"></constructor-arg>
+		<constructor-arg index="8" type="int">
+			<value>6000</value>
+		</constructor-arg>
+	</bean>
+
+	<bean id="securityOfficer01"
+		class="com.rollingstone.springframework.aop.example.SecurityOfficer">
+		<constructor-arg index="0" value="01"></constructor-arg>
+		<constructor-arg index="1" value="0001"></constructor-arg>
+		<constructor-arg index="2" value="Brent"></constructor-arg>
+		<constructor-arg index="3" value="Diana"></constructor-arg>
+		<constructor-arg index="4" value=""></constructor-arg>
+		<constructor-arg index="5" value="111-11-1111"></constructor-arg>
+		<constructor-arg index="6">
+			<ref bean="dateOfBirth" />
+		</constructor-arg>
+		<constructor-arg index="7">
+			<ref bean="airport01" />
+		</constructor-arg>
+		<constructor-arg index="8" value="25"></constructor-arg>
+		<constructor-arg index="9" value="M"></constructor-arg>
+	</bean>
+
+	<bean id="securityOfficer02"
+		class="com.rollingstone.springframework.aop.example.SecurityOfficer">
+		<constructor-arg index="0" value="02"></constructor-arg>
+		<constructor-arg index="1" value="0002"></constructor-arg>
+		<constructor-arg index="2" value="Patrick"></constructor-arg>
+		<constructor-arg index="3" value="Cummings"></constructor-arg>
+		<constructor-arg index="4" value=""></constructor-arg>
+		<constructor-arg index="5" value="222-22-2222"></constructor-arg>
+		<constructor-arg index="6">
+			<ref bean="dateOfBirth" />
+		</constructor-arg>
+		<constructor-arg index="7">
+			<ref bean="airport01" />
+		</constructor-arg>
+		<constructor-arg index="8" value="25"></constructor-arg>
+		<constructor-arg index="9" value="M"></constructor-arg>
+	</bean>
+
+	<bean id="securityOfficer03"
+		class="com.rollingstone.springframework.aop.example.SecurityOfficer">
+		<constructor-arg index="0" value="03"></constructor-arg>
+		<constructor-arg index="1" value="0003"></constructor-arg>
+		<constructor-arg index="2" value="Mathew"></constructor-arg>
+		<constructor-arg index="3" value="Wade"></constructor-arg>
+		<constructor-arg index="4" value=""></constructor-arg>
+		<constructor-arg index="5" value="333-33-3333"></constructor-arg>
+		<constructor-arg index="6">
+			<ref bean="dateOfBirth" />
+		</constructor-arg>
+		<constructor-arg index="7">
+			<ref bean="airport01" />
+		</constructor-arg>
+		<constructor-arg index="8" value="25"></constructor-arg>
+		<constructor-arg index="9" value="M"></constructor-arg>
+	</bean>
+
+	<bean id="securityOfficer04"
+		class="com.rollingstone.springframework.aop.example.SecurityOfficer">
+		<constructor-arg index="0" value="04"></constructor-arg>
+		<constructor-arg index="1" value="0004"></constructor-arg>
+		<constructor-arg index="2" value="Alex"></constructor-arg>
+		<constructor-arg index="3" value="Kingsley"></constructor-arg>
+		<constructor-arg index="4" value="Bret"></constructor-arg>
+		<constructor-arg index="5" value="444-44-4444"></constructor-arg>
+		<constructor-arg index="6">
+			<ref bean="dateOfBirth" />
+		</constructor-arg>
+		<constructor-arg index="7">
+			<ref bean="airport01" />
+		</constructor-arg>
+		<constructor-arg index="8" value="25"></constructor-arg>
+		<constructor-arg index="9" value="M"></constructor-arg>
+	</bean>
+
+	<bean id="securityOfficer05"
+		class="com.rollingstone.springframework.aop.example.SecurityOfficer">
+		<constructor-arg index="0" value="01"></constructor-arg>
+		<constructor-arg index="1" value="0001"></constructor-arg>
+		<constructor-arg index="2" value="Robert"></constructor-arg>
+		<constructor-arg index="3" value="Paton"></constructor-arg>
+		<constructor-arg index="4" value=""></constructor-arg>
+		<constructor-arg index="5" value="555-55-5555"></constructor-arg>
+		<constructor-arg index="6">
+			<ref bean="dateOfBirth" />
+		</constructor-arg>
+		<constructor-arg index="7">
+			<ref bean="airport02" />
+		</constructor-arg>
+		<constructor-arg index="8" value="25"></constructor-arg>
+		<constructor-arg index="9" value="M"></constructor-arg>
+	</bean>
+
+	<bean id="securityOfficer06"
+		class="com.rollingstone.springframework.aop.example.SecurityOfficer">
+		<constructor-arg index="0" value="02"></constructor-arg>
+		<constructor-arg index="1" value="0002"></constructor-arg>
+		<constructor-arg index="2" value="Jhon"></constructor-arg>
+		<constructor-arg index="3" value="Patton"></constructor-arg>
+		<constructor-arg index="4" value=""></constructor-arg>
+		<constructor-arg index="5" value="666-66-6666"></constructor-arg>
+		<constructor-arg index="6">
+			<ref bean="dateOfBirth" />
+		</constructor-arg>
+		<constructor-arg index="7">
+			<ref bean="airport02" />
+		</constructor-arg>
+		<constructor-arg index="8" value="25"></constructor-arg>
+		<constructor-arg index="9" value="M"></constructor-arg>
+	</bean>
+
+	<bean id="securityOfficer07"
+		class="com.rollingstone.springframework.aop.example.SecurityOfficer">
+		<constructor-arg index="0" value="03"></constructor-arg>
+		<constructor-arg index="1" value="0003"></constructor-arg>
+		<constructor-arg index="2" value="Elezabeth"></constructor-arg>
+		<constructor-arg index="3" value="Scott"></constructor-arg>
+		<constructor-arg index="4" value=""></constructor-arg>
+		<constructor-arg index="5" value="777-77-7777"></constructor-arg>
+		<constructor-arg index="6">
+			<ref bean="dateOfBirth" />
+		</constructor-arg>
+		<constructor-arg index="7">
+			<ref bean="airport02" />
+		</constructor-arg>
+		<constructor-arg index="8" value="25"></constructor-arg>
+		<constructor-arg index="9" value="M"></constructor-arg>
+	</bean>
+
+	<bean id="securityOfficer08"
+		class="com.rollingstone.springframework.aop.example.SecurityOfficer">
+		<constructor-arg index="0" value="04"></constructor-arg>
+		<constructor-arg index="1" value="0004"></constructor-arg>
+		<constructor-arg index="2" value="Karan"></constructor-arg>
+		<constructor-arg index="3" value="Grover"></constructor-arg>
+		<constructor-arg index="4" value="Singh"></constructor-arg>
+		<constructor-arg index="5" value="888-88-8888"></constructor-arg>
+		<constructor-arg index="6">
+			<ref bean="dateOfBirth" />
+		</constructor-arg>
+		<constructor-arg index="7">
+			<ref bean="airport02" />
+		</constructor-arg>
+		<constructor-arg index="8" value="25"></constructor-arg>
+		<constructor-arg index="9" value="M"></constructor-arg>
+	</bean>
+
+	<bean id="securityOfficer09"
+		class="com.rollingstone.springframework.aop.example.SecurityOfficer">
+		<constructor-arg index="0" value="01"></constructor-arg>
+		<constructor-arg index="1" value="0001"></constructor-arg>
+		<constructor-arg index="2" value="Jordaya"></constructor-arg>
+		<constructor-arg index="3" value="Bentley"></constructor-arg>
+		<constructor-arg index="4" value="Maria"></constructor-arg>
+		<constructor-arg index="5" value="576-56-4755"></constructor-arg>
+		<constructor-arg index="6">
+			<ref bean="dateOfBirth" />
+		</constructor-arg>
+		<constructor-arg index="7">
+			<ref bean="airport03" />
+		</constructor-arg>
+		<constructor-arg index="8" value="25"></constructor-arg>
+		<constructor-arg index="9" value="M"></constructor-arg>
+	</bean>
+
+	<bean id="securityOfficer10"
+		class="com.rollingstone.springframework.aop.example.SecurityOfficer">
+		<constructor-arg index="0" value="02"></constructor-arg>
+		<constructor-arg index="1" value="0002"></constructor-arg>
+		<constructor-arg index="2" value="Jhon"></constructor-arg>
+		<constructor-arg index="3" value="Smith"></constructor-arg>
+		<constructor-arg index="4" value=""></constructor-arg>
+		<constructor-arg index="5" value="999-96-9966"></constructor-arg>
+		<constructor-arg index="6">
+			<ref bean="dateOfBirth" />
+		</constructor-arg>
+		<constructor-arg index="7">
+			<ref bean="airport03" />
+		</constructor-arg>
+		<constructor-arg index="8" value="25"></constructor-arg>
+		<constructor-arg index="9" value="M"></constructor-arg>
+	</bean>
+
+	<bean id="securityOfficer11"
+		class="com.rollingstone.springframework.aop.example.SecurityOfficer">
+		<constructor-arg index="0" value="03"></constructor-arg>
+		<constructor-arg index="1" value="0003"></constructor-arg>
+		<constructor-arg index="2" value="Elezabeth"></constructor-arg>
+		<constructor-arg index="3" value="Williams"></constructor-arg>
+		<constructor-arg index="4" value=""></constructor-arg>
+		<constructor-arg index="5" value="767-37-3477"></constructor-arg>
+		<constructor-arg index="6">
+			<ref bean="dateOfBirth" />
+		</constructor-arg>
+		<constructor-arg index="7">
+			<ref bean="airport03" />
+		</constructor-arg>
+		<constructor-arg index="8" value="25"></constructor-arg>
+		<constructor-arg index="9" value="M"></constructor-arg>
+	</bean>
+
+	<bean id="securityOfficer12"
+		class="com.rollingstone.springframework.aop.example.SecurityOfficer">
+		<constructor-arg index="0" value="04"></constructor-arg>
+		<constructor-arg index="1" value="0004"></constructor-arg>
+		<constructor-arg index="2" value="Roshan"></constructor-arg>
+		<constructor-arg index="3" value="Fernando"></constructor-arg>
+		<constructor-arg index="4" value=""></constructor-arg>
+		<constructor-arg index="5" value="888-88-8888"></constructor-arg>
+		<constructor-arg index="6">
+			<ref bean="dateOfBirth" />
+		</constructor-arg>
+		<constructor-arg index="7">
+			<ref bean="airport03" />
+		</constructor-arg>
+		<constructor-arg index="8" value="25"></constructor-arg>
+		<constructor-arg index="9" value="M"></constructor-arg>
+	</bean>
+
+
+	<bean id="securityOfficer13"
+		class="com.rollingstone.springframework.aop.example.SecurityOfficer">
+		<constructor-arg index="0" value="01"></constructor-arg>
+		<constructor-arg index="1" value="0001"></constructor-arg>
+		<constructor-arg index="2" value="Kelly"></constructor-arg>
+		<constructor-arg index="3" value="Kegan"></constructor-arg>
+		<constructor-arg index="4" value=""></constructor-arg>
+		<constructor-arg index="5" value="676-86-4755"></constructor-arg>
+		<constructor-arg index="6">
+			<ref bean="dateOfBirth" />
+		</constructor-arg>
+		<constructor-arg index="7">
+			<ref bean="airport04" />
+		</constructor-arg>
+		<constructor-arg index="8" value="25"></constructor-arg>
+		<constructor-arg index="9" value="M"></constructor-arg>
+	</bean>
+
+	<bean id="securityOfficer14"
+		class="com.rollingstone.springframework.aop.example.SecurityOfficer">
+		<constructor-arg index="0" value="02"></constructor-arg>
+		<constructor-arg index="1" value="0002"></constructor-arg>
+		<constructor-arg index="2" value="Peter"></constructor-arg>
+		<constructor-arg index="3" value="Williams"></constructor-arg>
+		<constructor-arg index="4" value=""></constructor-arg>
+		<constructor-arg index="5" value="989-96-9966"></constructor-arg>
+		<constructor-arg index="6">
+			<ref bean="dateOfBirth" />
+		</constructor-arg>
+		<constructor-arg index="7">
+			<ref bean="airport04" />
+		</constructor-arg>
+		<constructor-arg index="8" value="25"></constructor-arg>
+		<constructor-arg index="9" value="M"></constructor-arg>
+	</bean>
+
+	<bean id="securityOfficer15"
+		class="com.rollingstone.springframework.aop.example.SecurityOfficer">
+		<constructor-arg index="0" value="03"></constructor-arg>
+		<constructor-arg index="1" value="0003"></constructor-arg>
+		<constructor-arg index="2" value="Jesse"></constructor-arg>
+		<constructor-arg index="3" value="Gold"></constructor-arg>
+		<constructor-arg index="4" value=""></constructor-arg>
+		<constructor-arg index="5" value="767-57-8877"></constructor-arg>
+		<constructor-arg index="6">
+			<ref bean="dateOfBirth" />
+		</constructor-arg>
+		<constructor-arg index="7">
+			<ref bean="airport04" />
+		</constructor-arg>
+		<constructor-arg index="8" value="25"></constructor-arg>
+		<constructor-arg index="9" value="M"></constructor-arg>
+	</bean>
+
+	<bean id="securityOfficer16"
+		class="com.rollingstone.springframework.aop.example.SecurityOfficer">
+		<constructor-arg index="0" value="04"></constructor-arg>
+		<constructor-arg index="1" value="0004"></constructor-arg>
+		<constructor-arg index="2" value="Debra"></constructor-arg>
+		<constructor-arg index="3" value="Terry"></constructor-arg>
+		<constructor-arg index="4" value=""></constructor-arg>
+		<constructor-arg index="5" value="378-23-4576"></constructor-arg>
+		<constructor-arg index="6">
+			<ref bean="dateOfBirth" />
+		</constructor-arg>
+		<constructor-arg index="7">
+			<ref bean="airport05" />
+		</constructor-arg>
+		<constructor-arg index="8" value="25"></constructor-arg>
+		<constructor-arg index="9" value="M"></constructor-arg>
+	</bean>
+
+	<bean id="securityOfficer17"
+		class="com.rollingstone.springframework.aop.example.SecurityOfficer">
+		<constructor-arg index="0" value="01"></constructor-arg>
+		<constructor-arg index="1" value="0001"></constructor-arg>
+		<constructor-arg index="2" value="Glen"></constructor-arg>
+		<constructor-arg index="3" value="Maxwell"></constructor-arg>
+		<constructor-arg index="4" value=""></constructor-arg>
+		<constructor-arg index="5" value="876-76-4755"></constructor-arg>
+		<constructor-arg index="6">
+			<ref bean="dateOfBirth" />
+		</constructor-arg>
+		<constructor-arg index="7">
+			<ref bean="airport05" />
+		</constructor-arg>
+		<constructor-arg index="8" value="25"></constructor-arg>
+		<constructor-arg index="9" value="M"></constructor-arg>
+	</bean>
+
+	<bean id="securityOfficer18"
+		class="com.rollingstone.springframework.aop.example.SecurityOfficer">
+		<constructor-arg index="0" value="02"></constructor-arg>
+		<constructor-arg index="1" value="0002"></constructor-arg>
+		<constructor-arg index="2" value="Nancy"></constructor-arg>
+		<constructor-arg index="3" value="Moore"></constructor-arg>
+		<constructor-arg index="4" value=""></constructor-arg>
+		<constructor-arg index="5" value="966-96-9966"></constructor-arg>
+		<constructor-arg index="6">
+			<ref bean="dateOfBirth" />
+		</constructor-arg>
+		<constructor-arg index="7">
+			<ref bean="airport05" />
+		</constructor-arg>
+		<constructor-arg index="8" value="25"></constructor-arg>
+		<constructor-arg index="9" value="M"></constructor-arg>
+	</bean>
+
+	<bean id="securityOfficer19"
+		class="com.rollingstone.springframework.aop.example.SecurityOfficer">
+		<constructor-arg index="0" value="03"></constructor-arg>
+		<constructor-arg index="1" value="0003"></constructor-arg>
+		<constructor-arg index="2" value="Nicole"></constructor-arg>
+		<constructor-arg index="3" value="Cruz"></constructor-arg>
+		<constructor-arg index="4" value=""></constructor-arg>
+		<constructor-arg index="5" value="767-37-3477"></constructor-arg>
+		<constructor-arg index="6">
+			<ref bean="dateOfBirth" />
+		</constructor-arg>
+		<constructor-arg index="7">
+			<ref bean="airport05" />
+		</constructor-arg>
+		<constructor-arg index="8" value="25"></constructor-arg>
+		<constructor-arg index="9" value="M"></constructor-arg>
+	</bean>
+
+	<bean id="securityOfficer20"
+		class="com.rollingstone.springframework.aop.example.SecurityOfficer">
+		<constructor-arg index="0" value="04"></constructor-arg>
+		<constructor-arg index="1" value="0004"></constructor-arg>
+		<constructor-arg index="2" value="Tom"></constructor-arg>
+		<constructor-arg index="3" value="Kidman"></constructor-arg>
+		<constructor-arg index="4" value=""></constructor-arg>
+		<constructor-arg index="5" value="848-48-8888"></constructor-arg>
+		<constructor-arg index="6">
+			<ref bean="dateOfBirth" />
+		</constructor-arg>
+		<constructor-arg index="7">
+			<ref bean="airport05" />
+		</constructor-arg>
+		<constructor-arg index="8" value="25"></constructor-arg>
+		<constructor-arg index="9" value="M"></constructor-arg>
+	</bean>
+
+	<!-- Traveller Start -->
+
+	<bean id="traveller01" class="com.rollingstone.springframework.aop.example.Traveller">
+		<constructor-arg index="0" type="long">
+			<value>1</value>
+		</constructor-arg>
+		<constructor-arg index="1" type="java.lang.String">
+			<value>Peter</value>
+		</constructor-arg>
+		<constructor-arg index="2" type="java.lang.String">
+			<value>Finder</value>
+		</constructor-arg>
+		<constructor-arg index="3" type="java.lang.String">
+			<value>
+			</value>
+		</constructor-arg>
+		<constructor-arg index="4" type="java.lang.String">
+			<value>464-45-4543</value>
+		</constructor-arg>
+		<constructor-arg index="5" type="java.time.LocalDate">
+			<ref bean="dateOfBirth" />
+		</constructor-arg>
+		<constructor-arg index="6">
+			<ref bean="airport01" />
+		</constructor-arg>
+		<constructor-arg index="7">
+			<ref bean="airport02" />
+		</constructor-arg>
+		<constructor-arg index="8" type="int">
+			<value>25</value>
+		</constructor-arg>
+		<constructor-arg index="9" type="java.lang.String">
+			<value>M</value>
+		</constructor-arg>
+		<constructor-arg index="10" type="java.lang.String">
+			<value>Non Veg</value>
+		</constructor-arg>
+	</bean>
+
+	<!-- <bean id="traveller02" class="com.rollingstone.springframework.aop.example.Traveller"> 
+		<constructor-arg index="0" value="04"></constructor-arg> <constructor-arg 
+		index="1" value="0004"></constructor-arg> <constructor-arg index="2" value="Pavan"></constructor-arg> 
+		<constructor-arg index="3" value="Namdeo"></constructor-arg> <constructor-arg 
+		index="4" value=""></constructor-arg> <constructor-arg index="5" value="434-45-4543"></constructor-arg> 
+		<constructor-arg index="6"> <ref bean="dateOfBirth" /> </constructor-arg> 
+		<constructor-arg index="7"> <ref bean="airport01" /> </constructor-arg> <constructor-arg 
+		index="8"> <ref bean="airport02" /> </constructor-arg> <constructor-arg index="9" 
+		value="25"></constructor-arg> <constructor-arg index="10" value="M"></constructor-arg> 
+		<constructor-arg index="11" value="Veg"></constructor-arg> </bean> -->
+
+
+	<bean id="traveller02" class="com.rollingstone.springframework.aop.example.Traveller">
+		<constructor-arg index="0" type="long">
+			<value>1</value>
+		</constructor-arg>
+		<constructor-arg index="1" type="java.lang.String">
+			<value>Pavan</value>
+		</constructor-arg>
+		<constructor-arg index="2" type="java.lang.String">
+			<value>Namdeo</value>
+		</constructor-arg>
+		<constructor-arg index="3" type="java.lang.String">
+			<value>
+			</value>
+		</constructor-arg>
+		<constructor-arg index="4" type="java.lang.String">
+			<value>434-45-4543</value>
+		</constructor-arg>
+		<constructor-arg index="5" type="java.time.LocalDate">
+			<ref bean="dateOfBirth" />
+		</constructor-arg>
+		<constructor-arg index="6">
+			<ref bean="airport01" />
+		</constructor-arg>
+		<constructor-arg index="7">
+			<ref bean="airport02" />
+		</constructor-arg>
+		<constructor-arg index="8" type="int">
+			<value>25</value>
+		</constructor-arg>
+		<constructor-arg index="9" type="java.lang.String">
+			<value>M</value>
+		</constructor-arg>
+		<constructor-arg index="10" type="java.lang.String">
+			<value>Non Veg</value>
+		</constructor-arg>
+	</bean>
+
+	<bean id="traveller03" class="com.rollingstone.springframework.aop.example.Traveller">
+		<constructor-arg index="0" type="long">
+			<value>3</value>
+		</constructor-arg>
+		<constructor-arg index="1" type="java.lang.String">
+			<value>Amit</value>
+		</constructor-arg>
+		<constructor-arg index="2" type="java.lang.String">
+			<value>Baruri</value>
+		</constructor-arg>
+		<constructor-arg index="3" type="java.lang.String">
+			<value>
+			</value>
+		</constructor-arg>
+		<constructor-arg index="4" type="java.lang.String">
+			<value>439-45-4543</value>
+		</constructor-arg>
+		<constructor-arg index="5" type="java.time.LocalDate">
+			<ref bean="dateOfBirth" />
+		</constructor-arg>
+		<constructor-arg index="6">
+			<ref bean="airport01" />
+		</constructor-arg>
+		<constructor-arg index="7">
+			<ref bean="airport02" />
+		</constructor-arg>
+		<constructor-arg index="8" type="int">
+			<value>25</value>
+		</constructor-arg>
+		<constructor-arg index="9" type="java.lang.String">
+			<value>M</value>
+		</constructor-arg>
+		<constructor-arg index="10" type="java.lang.String">
+			<value>Veg</value>
+		</constructor-arg>
+	</bean>
+
+	<bean id="traveller04" class="com.rollingstone.springframework.aop.example.Traveller">
+		<constructor-arg index="0" type="long">
+			<value>1</value>
+		</constructor-arg>
+		<constructor-arg index="1" type="java.lang.String">
+			<value>Varun</value>
+		</constructor-arg>
+		<constructor-arg index="2" type="java.lang.String">
+			<value>Sharma</value>
+		</constructor-arg>
+		<constructor-arg index="3" type="java.lang.String">
+			<value>
+			</value>
+		</constructor-arg>
+		<constructor-arg index="4" type="java.lang.String">
+			<value>434-45-4578</value>
+		</constructor-arg>
+		<constructor-arg index="5" type="java.time.LocalDate">
+			<ref bean="dateOfBirth" />
+		</constructor-arg>
+		<constructor-arg index="6">
+			<ref bean="airport01" />
+		</constructor-arg>
+		<constructor-arg index="7">
+			<ref bean="airport02" />
+		</constructor-arg>
+		<constructor-arg index="8" type="int">
+			<value>25</value>
+		</constructor-arg>
+		<constructor-arg index="9" type="java.lang.String">
+			<value>M</value>
+		</constructor-arg>
+		<constructor-arg index="10" type="java.lang.String">
+			<value>Veg</value>
+		</constructor-arg>
+	</bean>
+
+	<bean id="traveller05" class="com.rollingstone.springframework.aop.example.Traveller">
+		<constructor-arg index="0" type="long">
+			<value>5</value>
+		</constructor-arg>
+		<constructor-arg index="1" type="java.lang.String">
+			<value>David</value>
+		</constructor-arg>
+		<constructor-arg index="2" type="java.lang.String">
+			<value>Harrington</value>
+		</constructor-arg>
+		<constructor-arg index="3" type="java.lang.String">
+			<value>
+			</value>
+		</constructor-arg>
+		<constructor-arg index="4" type="java.lang.String">
+			<value>434-45-4543</value>
+		</constructor-arg>
+		<constructor-arg index="5" type="java.time.LocalDate">
+			<ref bean="dateOfBirth" />
+		</constructor-arg>
+		<constructor-arg index="6">
+			<ref bean="airport01" />
+		</constructor-arg>
+		<constructor-arg index="7">
+			<ref bean="airport02" />
+		</constructor-arg>
+		<constructor-arg index="8" type="int">
+			<value>25</value>
+		</constructor-arg>
+		<constructor-arg index="9" type="java.lang.String">
+			<value>M</value>
+		</constructor-arg>
+		<constructor-arg index="10" type="java.lang.String">
+			<value>Non Veg</value>
+		</constructor-arg>
+	</bean>
+
+
+	<bean id="traveller06" class="com.rollingstone.springframework.aop.example.Traveller">
+		<constructor-arg index="0" type="long">
+			<value>6</value>
+		</constructor-arg>
+		<constructor-arg index="1" type="java.lang.String">
+			<value>Nicolaus</value>
+		</constructor-arg>
+		<constructor-arg index="2" type="java.lang.String">
+			<value>Loriante</value>
+		</constructor-arg>
+		<constructor-arg index="3" type="java.lang.String">
+			<value>
+			</value>
+		</constructor-arg>
+		<constructor-arg index="4" type="java.lang.String">
+			<value>834-45-4943</value>
+		</constructor-arg>
+		<constructor-arg index="5" type="java.time.LocalDate">
+			<ref bean="dateOfBirth" />
+		</constructor-arg>
+		<constructor-arg index="6">
+			<ref bean="airport02" />
+		</constructor-arg>
+		<constructor-arg index="7">
+			<ref bean="airport03" />
+		</constructor-arg>
+		<constructor-arg index="8" type="int">
+			<value>25</value>
+		</constructor-arg>
+		<constructor-arg index="9" type="java.lang.String">
+			<value>M</value>
+		</constructor-arg>
+		<constructor-arg index="10" type="java.lang.String">
+			<value>Non Veg</value>
+		</constructor-arg>
+	</bean>
+
+	<bean id="traveller07" class="com.rollingstone.springframework.aop.example.Traveller">
+		<constructor-arg index="0" type="long">
+			<value>7</value>
+		</constructor-arg>
+		<constructor-arg index="1" type="java.lang.String">
+			<value>Dean</value>
+		</constructor-arg>
+		<constructor-arg index="2" type="java.lang.String">
+			<value>Jones</value>
+		</constructor-arg>
+		<constructor-arg index="3" type="java.lang.String">
+			<value>
+			</value>
+		</constructor-arg>
+		<constructor-arg index="4" type="java.lang.String">
+			<value>434-98-4543</value>
+		</constructor-arg>
+		<constructor-arg index="5" type="java.time.LocalDate">
+			<ref bean="dateOfBirth" />
+		</constructor-arg>
+		<constructor-arg index="6">
+			<ref bean="airport02" />
+		</constructor-arg>
+		<constructor-arg index="7">
+			<ref bean="airport03" />
+		</constructor-arg>
+		<constructor-arg index="8" type="int">
+			<value>25</value>
+		</constructor-arg>
+		<constructor-arg index="9" type="java.lang.String">
+			<value>M</value>
+		</constructor-arg>
+		<constructor-arg index="10" type="java.lang.String">
+			<value>Non Veg</value>
+		</constructor-arg>
+	</bean>
+
+	<bean id="traveller08" class="com.rollingstone.springframework.aop.example.Traveller">
+		<constructor-arg index="0" type="long">
+			<value>8</value>
+		</constructor-arg>
+		<constructor-arg index="1" type="java.lang.String">
+			<value>Michelle</value>
+		</constructor-arg>
+		<constructor-arg index="2" type="java.lang.String">
+			<value>Marsh</value>
+		</constructor-arg>
+		<constructor-arg index="3" type="java.lang.String">
+			<value>
+			</value>
+		</constructor-arg>
+		<constructor-arg index="4" type="java.lang.String">
+			<value>434-45-4543</value>
+		</constructor-arg>
+		<constructor-arg index="5" type="java.time.LocalDate">
+			<ref bean="dateOfBirth" />
+		</constructor-arg>
+		<constructor-arg index="6">
+			<ref bean="airport02" />
+		</constructor-arg>
+		<constructor-arg index="7">
+			<ref bean="airport03" />
+		</constructor-arg>
+		<constructor-arg index="8" type="int">
+			<value>25</value>
+		</constructor-arg>
+		<constructor-arg index="9" type="java.lang.String">
+			<value>F</value>
+		</constructor-arg>
+		<constructor-arg index="10" type="java.lang.String">
+			<value>Non Veg</value>
+		</constructor-arg>
+	</bean>
+
+	<bean id="traveller09" class="com.rollingstone.springframework.aop.example.Traveller">
+		<constructor-arg index="0" type="long">
+			<value>9</value>
+		</constructor-arg>
+		<constructor-arg index="1" type="java.lang.String">
+			<value>Julia</value>
+		</constructor-arg>
+		<constructor-arg index="2" type="java.lang.String">
+			<value>Parker</value>
+		</constructor-arg>
+		<constructor-arg index="3" type="java.lang.String">
+			<value>
+			</value>
+		</constructor-arg>
+		<constructor-arg index="4" type="java.lang.String">
+			<value>434-45-4987</value>
+		</constructor-arg>
+		<constructor-arg index="5" type="java.time.LocalDate">
+			<ref bean="dateOfBirth" />
+		</constructor-arg>
+		<constructor-arg index="6">
+			<ref bean="airport02" />
+		</constructor-arg>
+		<constructor-arg index="7">
+			<ref bean="airport03" />
+		</constructor-arg>
+		<constructor-arg index="8" type="int">
+			<value>25</value>
+		</constructor-arg>
+		<constructor-arg index="9" type="java.lang.String">
+			<value>M</value>
+		</constructor-arg>
+		<constructor-arg index="10" type="java.lang.String">
+			<value>Non Veg</value>
+		</constructor-arg>
+	</bean>
+
+	<bean id="traveller10" class="com.rollingstone.springframework.aop.example.Traveller">
+		<constructor-arg index="0" type="long">
+			<value>10</value>
+		</constructor-arg>
+		<constructor-arg index="1" type="java.lang.String">
+			<value>David</value>
+		</constructor-arg>
+		<constructor-arg index="2" type="java.lang.String">
+			<value>Boon</value>
+		</constructor-arg>
+		<constructor-arg index="3" type="java.lang.String">
+			<value>
+			</value>
+		</constructor-arg>
+		<constructor-arg index="4" type="java.lang.String">
+			<value>434-45-4543</value>
+		</constructor-arg>
+		<constructor-arg index="5" type="java.time.LocalDate">
+			<ref bean="dateOfBirth" />
+		</constructor-arg>
+		<constructor-arg index="6">
+			<ref bean="airport03" />
+		</constructor-arg>
+		<constructor-arg index="7">
+			<ref bean="airport04" />
+		</constructor-arg>
+		<constructor-arg index="8" type="int">
+			<value>25</value>
+		</constructor-arg>
+		<constructor-arg index="9" type="java.lang.String">
+			<value>M</value>
+		</constructor-arg>
+		<constructor-arg index="10" type="java.lang.String">
+			<value>Non Veg</value>
+		</constructor-arg>
+	</bean>
+
+	<bean id="traveller11" class="com.rollingstone.springframework.aop.example.Traveller">
+		<constructor-arg index="0" type="long">
+			<value>11</value>
+		</constructor-arg>
+		<constructor-arg index="1" type="java.lang.String">
+			<value>Porchia</value>
+		</constructor-arg>
+		<constructor-arg index="2" type="java.lang.String">
+			<value>Masey</value>
+		</constructor-arg>
+		<constructor-arg index="3" type="java.lang.String">
+			<value>
+			</value>
+		</constructor-arg>
+		<constructor-arg index="4" type="java.lang.String">
+			<value>434-45-4345</value>
+		</constructor-arg>
+		<constructor-arg index="5" type="java.time.LocalDate">
+			<ref bean="dateOfBirth" />
+		</constructor-arg>
+		<constructor-arg index="6">
+			<ref bean="airport03" />
+		</constructor-arg>
+		<constructor-arg index="7">
+			<ref bean="airport04" />
+		</constructor-arg>
+		<constructor-arg index="8" type="int">
+			<value>25</value>
+		</constructor-arg>
+		<constructor-arg index="9" type="java.lang.String">
+			<value>M</value>
+		</constructor-arg>
+		<constructor-arg index="10" type="java.lang.String">
+			<value>Non Veg</value>
+		</constructor-arg>
+	</bean>
+
+
+	<bean id="traveller12" class="com.rollingstone.springframework.aop.example.Traveller">
+		<constructor-arg index="0" type="long">
+			<value>12</value>
+		</constructor-arg>
+		<constructor-arg index="1" type="java.lang.String">
+			<value>Steven</value>
+		</constructor-arg>
+		<constructor-arg index="2" type="java.lang.String">
+			<value>Cook</value>
+		</constructor-arg>
+		<constructor-arg index="3" type="java.lang.String">
+			<value>
+			</value>
+		</constructor-arg>
+		<constructor-arg index="4" type="java.lang.String">
+			<value>434-45-4393</value>
+		</constructor-arg>
+		<constructor-arg index="5" type="java.time.LocalDate">
+			<ref bean="dateOfBirth" />
+		</constructor-arg>
+		<constructor-arg index="6">
+			<ref bean="airport03" />
+		</constructor-arg>
+		<constructor-arg index="7">
+			<ref bean="airport04" />
+		</constructor-arg>
+		<constructor-arg index="8" type="int">
+			<value>25</value>
+		</constructor-arg>
+		<constructor-arg index="9" type="java.lang.String">
+			<value>M</value>
+		</constructor-arg>
+		<constructor-arg index="10" type="java.lang.String">
+			<value>Non Veg</value>
+		</constructor-arg>
+	</bean>
+
+	<bean id="traveller13" class="com.rollingstone.springframework.aop.example.Traveller">
+		<constructor-arg index="0" type="long">
+			<value>13</value>
+		</constructor-arg>
+		<constructor-arg index="1" type="java.lang.String">
+			<value>Allistair</value>
+		</constructor-arg>
+		<constructor-arg index="2" type="java.lang.String">
+			<value>Cook</value>
+		</constructor-arg>
+		<constructor-arg index="3" type="java.lang.String">
+			<value>
+			</value>
+		</constructor-arg>
+		<constructor-arg index="4" type="java.lang.String">
+			<value>434-45-9459</value>
+		</constructor-arg>
+		<constructor-arg index="5" type="java.time.LocalDate">
+			<ref bean="dateOfBirth" />
+		</constructor-arg>
+		<constructor-arg index="6">
+			<ref bean="airport04" />
+		</constructor-arg>
+		<constructor-arg index="7">
+			<ref bean="airport05" />
+		</constructor-arg>
+		<constructor-arg index="8" type="int">
+			<value>25</value>
+		</constructor-arg>
+		<constructor-arg index="9" type="java.lang.String">
+			<value>M</value>
+		</constructor-arg>
+		<constructor-arg index="10" type="java.lang.String">
+			<value>Non Veg</value>
+		</constructor-arg>
+	</bean>
+
+	<bean id="traveller14" class="com.rollingstone.springframework.aop.example.Traveller">
+		<constructor-arg index="0" type="long">
+			<value>14</value>
+		</constructor-arg>
+		<constructor-arg index="1" type="java.lang.String">
+			<value>Stacey</value>
+		</constructor-arg>
+		<constructor-arg index="2" type="java.lang.String">
+			<value>Winslet</value>
+		</constructor-arg>
+		<constructor-arg index="3" type="java.lang.String">
+			<value>
+			</value>
+		</constructor-arg>
+		<constructor-arg index="4" type="java.lang.String">
+			<value>434-45-9564</value>
+		</constructor-arg>
+		<constructor-arg index="5" type="java.time.LocalDate">
+			<ref bean="dateOfBirth" />
+		</constructor-arg>
+		<constructor-arg index="6">
+			<ref bean="airport04" />
+		</constructor-arg>
+		<constructor-arg index="7">
+			<ref bean="airport05" />
+		</constructor-arg>
+		<constructor-arg index="8" type="int">
+			<value>25</value>
+		</constructor-arg>
+		<constructor-arg index="9" type="java.lang.String">
+			<value>F</value>
+		</constructor-arg>
+		<constructor-arg index="10" type="java.lang.String">
+			<value>Non Veg</value>
+		</constructor-arg>
+	</bean>
+
+	<bean id="traveller15" class="com.rollingstone.springframework.aop.example.Traveller">
+		<constructor-arg index="0" type="long">
+			<value>15</value>
+		</constructor-arg>
+		<constructor-arg index="1" type="java.lang.String">
+			<value>Steve</value>
+		</constructor-arg>
+		<constructor-arg index="2" type="java.lang.String">
+			<value>Gates</value>
+		</constructor-arg>
+		<constructor-arg index="3" type="java.lang.String">
+			<value>
+			</value>
+		</constructor-arg>
+		<constructor-arg index="4" type="java.lang.String">
+			<value>434-89-9459</value>
+		</constructor-arg>
+		<constructor-arg index="5" type="java.time.LocalDate">
+			<ref bean="dateOfBirth" />
+		</constructor-arg>
+		<constructor-arg index="6">
+			<ref bean="airport04" />
+		</constructor-arg>
+		<constructor-arg index="7">
+			<ref bean="airport05" />
+		</constructor-arg>
+		<constructor-arg index="8" type="int">
+			<value>25</value>
+		</constructor-arg>
+		<constructor-arg index="9" type="java.lang.String">
+			<value>M</value>
+		</constructor-arg>
+		<constructor-arg index="10" type="java.lang.String">
+			<value>Non Veg</value>
+		</constructor-arg>
+	</bean>
+
+	<util:list id="listOfTravellersinAireport01" value-type="com.rollingstone.springframework.aop.example.Traveller">
+		 <ref bean="traveller01" />
+         <ref bean="traveller02" /> 
+          <ref bean="traveller03" />
+         <ref bean="traveller04" />
+          <ref bean="traveller05" />
+	</util:list>
+	
+	<util:list id="listOfTravellersinAireport02" value-type="com.rollingstone.springframework.aop.example.Traveller">
+		 <ref bean="traveller06" />
+         <ref bean="traveller07" /> 
+          <ref bean="traveller08" />
+         <ref bean="traveller09" />
+	</util:list>
+	
+	<util:list id="listOfTravellersinAireport03" value-type="com.rollingstone.springframework.aop.example.Traveller">
+		 <ref bean="traveller10" />
+         <ref bean="traveller11" /> 
+          <ref bean="traveller12" />
+	</util:list>
+	
+	<util:list id="listOfTravellersinAireport04" value-type="com.rollingstone.springframework.aop.example.Traveller">
+		 <ref bean="traveller13" />
+         <ref bean="traveller14" /> 
+          <ref bean="traveller15" />
+	</util:list>
+
+</beans>

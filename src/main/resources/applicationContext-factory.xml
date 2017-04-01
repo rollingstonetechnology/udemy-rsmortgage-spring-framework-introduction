@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	   http://www.springframework.org/schema/beans/spring-beans.xsd 
+	   http://www.springframework.org/schema/aop 
+	   http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+
+	<bean id="manager"
+		class="com.rollingstone.springframework.basic.ioc.contructor.injection.EmployeeFactory"
+		factory-method="createEmployeeOfType">
+		<constructor-arg value="manager" />
+	</bean>
+
+	<bean id="director"
+		class="com.rollingstone.springframework.basic.ioc.contructor.injection.EmployeeFactory"
+		factory-method="createEmployeeOfType">
+		<constructor-arg value="director" />
+	</bean>
+	
+	<bean id="localDate01"
+		class="com.rollingstone.springframework.basic.ioc.contructor.injection.LocalDateFactory"
+		factory-method="createLocalDate">
+		<constructor-arg value="1975-01-14" />
+	</bean>
+	
+	<bean id="localDate02"
+		class="com.rollingstone.springframework.basic.ioc.contructor.injection.LocalDateFactory"
+		factory-method="createLocalDate">
+		<constructor-arg value="2003-01-16" />
+	</bean>
+
+</beans>

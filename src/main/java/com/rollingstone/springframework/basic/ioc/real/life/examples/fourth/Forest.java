@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Forest {
-	
+
 	private List<Tree> trees  = new ArrayList<Tree>();
 	
 	private Nature livingEnvironment;

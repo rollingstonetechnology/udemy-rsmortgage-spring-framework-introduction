@@ -2,11 +2,15 @@ package com.rollingstone.springframework.basic.ioc.contructor.injection.first;
 
 import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 public class Customer {
 
 	private long customerId;
 	private String firstName;
 	private String lastName;
+	
+	@DateTimeFormat(pattern = "yyyy-mm-dd")
 	private Date dob;
 	public long getCustomerId() {
 		return customerId;
@@ -41,6 +45,11 @@ public class Customer {
 	}
 	public Customer() {
 		super();
+	}
+	@Override
+	public String toString() {
+		return "Customer [customerId=" + customerId + ", firstName=" + firstName + ", lastName=" + lastName + ", dob="
+				+ dob + "]";
 	}
 	
 	

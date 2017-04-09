@@ -10,16 +10,22 @@
 	</bean>
 	
 	<bean id="customer01"
-		class="com.rollingstone.springframework.basic.ioc.contructor.injection.Customer">
-		<constructor-arg value="1" type="int"></constructor-arg>
-		<constructor-arg value="Steven" type="String"></constructor-arg>
-		<constructor-arg value="Smith" type="String"></constructor-arg>
-		<constructor-arg value="1993-01-01" type="java.util.Date"></constructor-arg>
+		class="com.rollingstone.springframework.basic.ioc.contructor.injection.first.Customer">
+		<constructor-arg index="0" type="long">
+			<value>1</value>	
+		</constructor-arg>
+		<constructor-arg index="1" value="Steven" type="String"></constructor-arg>
+		<constructor-arg index="2" value="Smith" type="String"></constructor-arg>
+		<constructor-arg index="3" type="java.util.Date">
+			<bean factory-bean="dateFormat" factory-method="parse">
+				<constructor-arg value="1993-01-01" />
+			</bean>
+		</constructor-arg>
 	</bean>
 
 
 <bean id="investment01"
-		class="com.rollingstone.springframework.basic.ioc.contructor.injection.Investment">
+		class="com.rollingstone.springframework.basic.ioc.contructor.injection.first.Investment">
 		<constructor-arg index="0" value="1" type="java.lang.String"></constructor-arg>
 		<constructor-arg index="1" value="Rental Property" type="java.lang.String"></constructor-arg>
 		<constructor-arg index="2" value="Rental Property" type="java.lang.String"></constructor-arg>
@@ -33,13 +39,13 @@
 	
 	
 	<bean id="localDate01"
-		class="com.rollingstone.springframework.basic.ioc.contructor.injection.LocalDateFactory"
+		class="com.rollingstone.springframework.basic.ioc.contructor.injection.first.LocalDateFactory"
 		factory-method="createLocalDate">
 		<constructor-arg value="1993-01-01" />
 	</bean>
 	
 	<bean id="localDate02"
-		class="com.rollingstone.springframework.basic.ioc.contructor.injection.LocalDateFactory"
+		class="com.rollingstone.springframework.basic.ioc.contructor.injection.first.LocalDateFactory"
 		factory-method="createLocalDate">
 		<constructor-arg value="2013-01-01" />
 	</bean>

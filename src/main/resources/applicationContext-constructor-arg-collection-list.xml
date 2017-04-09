@@ -7,24 +7,24 @@
 	   http://www.springframework.org/schema/aop/spring-aop.xsd">
 
 <bean id="localDate01"
-		class="com.rollingstone.springframework.basic.ioc.contructor.injection.LocalDateFactory"
+		class="com.rollingstone.springframework.basic.ioc.contructor.injection.first.LocalDateFactory"
 		factory-method="createLocalDate">
 		<constructor-arg value="1975-01-14" />
 	</bean>
 	
 	<bean id="mfgDate"
-		class="com.rollingstone.springframework.basic.ioc.contructor.injection.LocalDateFactory"
+		class="com.rollingstone.springframework.basic.ioc.contructor.injection.first.LocalDateFactory"
 		factory-method="createLocalDate">
 		<constructor-arg value="2017-03-24" />
 	</bean>
 
 	<bean id="expDate"
-		class="com.rollingstone.springframework.basic.ioc.contructor.injection.LocalDateFactory"
+		class="com.rollingstone.springframework.basic.ioc.contructor.injection.first.LocalDateFactory"
 		factory-method="createLocalDate">
 		<constructor-arg value="2017-06-24" />
 	</bean>
 
-	<bean id="cartOfStrings" class="com.rollingstone.springframework.basic.ioc.contructor.injection.collection.ShoppingCart">
+	<bean id="cartOfStrings" class="com.rollingstone.springframework.basic.ioc.contructor.injection.collection.second.ShoppingCart">
 		<constructor-arg value="01"></constructor-arg>
 		<constructor-arg>
 			<ref bean="localDate01"/>
@@ -40,7 +40,7 @@
 		</constructor-arg>
 	</bean>
 	
-	<bean id="cartOfObjects" class="com.rollingstone.springframework.basic.ioc.contructor.injection.collection.ShoppingCartWithItemObjects">
+	<bean id="cartOfObjects" class="com.rollingstone.springframework.basic.ioc.contructor.injection.collection.second.ShoppingCartWithItemObjects">
 		<constructor-arg value="01"></constructor-arg>
 		<constructor-arg>
 			<ref bean="localDate01"/>
@@ -56,7 +56,7 @@
 		</constructor-arg>
 	</bean>
 
-<bean id="milk" class="com.rollingstone.springframework.basic.ioc.contructor.injection.collection.CartItem">
+<bean id="milk" class="com.rollingstone.springframework.basic.ioc.contructor.injection.collection.second.CartItem">
 		<constructor-arg value="01"></constructor-arg>
 		<constructor-arg value="Milk"></constructor-arg>
 		<constructor-arg index="2">
@@ -67,7 +67,7 @@
 		</constructor-arg>
 </bean>
 
-<bean id="potatoe" class="com.rollingstone.springframework.basic.ioc.contructor.injection.collection.CartItem">
+<bean id="potatoe" class="com.rollingstone.springframework.basic.ioc.contructor.injection.collection.second.CartItem">
 		<constructor-arg value="02"></constructor-arg>
 		<constructor-arg value="Potatoe"></constructor-arg>
 			<constructor-arg index="2">
@@ -78,7 +78,7 @@
 		</constructor-arg>
 </bean>
 
-<bean id="pizza" class="com.rollingstone.springframework.basic.ioc.contructor.injection.collection.CartItem">
+<bean id="pizza" class="com.rollingstone.springframework.basic.ioc.contructor.injection.collection.second.CartItem">
 		<constructor-arg value="03"></constructor-arg>
 		<constructor-arg value="Pizza"></constructor-arg>
 		<constructor-arg index="2">
@@ -89,7 +89,7 @@
 		</constructor-arg>
 </bean>
 
-<bean id="cookies" class="com.rollingstone.springframework.basic.ioc.contructor.injection.collection.CartItem">
+<bean id="cookies" class="com.rollingstone.springframework.basic.ioc.contructor.injection.collection.second.CartItem">
 		<constructor-arg value="04"></constructor-arg>
 		<constructor-arg value="Cookies"></constructor-arg>
 		<constructor-arg index="2">
@@ -100,7 +100,7 @@
 		</constructor-arg>
 </bean>
 
-<bean id="icecream" class="com.rollingstone.springframework.basic.ioc.contructor.injection.collection.CartItem">
+<bean id="icecream" class="com.rollingstone.springframework.basic.ioc.contructor.injection.collection.second.CartItem">
 		<constructor-arg value="05"></constructor-arg>
 		<constructor-arg value="Ice Cream"></constructor-arg>
 		<constructor-arg index="2">

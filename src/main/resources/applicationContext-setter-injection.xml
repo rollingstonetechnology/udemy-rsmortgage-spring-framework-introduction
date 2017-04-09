@@ -6,38 +6,38 @@
 
 
 	<bean id="dateOfBirth"
-		class="com.rollingstone.springframework.basic.ioc.contructor.injection.LocalDateFactory"
+		class="com.rollingstone.springframework.basic.ioc.contructor.injection.first.LocalDateFactory"
 		factory-method="createLocalDate">
 		<constructor-arg value="2017-03-24" />
 	</bean>
 	
 	<bean id="bsStarted"
-		class="com.rollingstone.springframework.basic.ioc.contructor.injection.LocalDateFactory"
+		class="com.rollingstone.springframework.basic.ioc.contructor.injection.first.LocalDateFactory"
 		factory-method="createLocalDate">
 		<constructor-arg value="2012-05-01" />
 	</bean>
 	
 	<bean id="bsCompleted"
-		class="com.rollingstone.springframework.basic.ioc.contructor.injection.LocalDateFactory"
+		class="com.rollingstone.springframework.basic.ioc.contructor.injection.first.LocalDateFactory"
 		factory-method="createLocalDate">
 		<constructor-arg value="2014-07-24" />
 	</bean>
 	
 	<bean id="msStarted"
-		class="com.rollingstone.springframework.basic.ioc.contructor.injection.LocalDateFactory"
+		class="com.rollingstone.springframework.basic.ioc.contructor.injection.first.LocalDateFactory"
 		factory-method="createLocalDate">
 		<constructor-arg value="2014-08-01" />
 	</bean>
 	
 	<bean id="msCompleted"
-		class="com.rollingstone.springframework.basic.ioc.contructor.injection.LocalDateFactory"
+		class="com.rollingstone.springframework.basic.ioc.contructor.injection.first.LocalDateFactory"
 		factory-method="createLocalDate">
 		<constructor-arg value="2015-10-11" />
 	</bean>
 
 
 	<bean id="address01"
-		class="com.rollingstone.springframework.basic.ioc.setter.injection.Address">
+		class="com.rollingstone.springframework.basic.ioc.setter.injection.third.Address">
 		<property name="addressID" value="1"></property>
 		<property name="streetAddress" value="10 InfinteLoop"></property>
 		<property name="city" value="Palo Alto"></property>
@@ -46,7 +46,7 @@
 	</bean>
 
 	<bean id="customer"
-		class="com.rollingstone.springframework.basic.ioc.setter.injection.Customer">
+		class="com.rollingstone.springframework.basic.ioc.setter.injection.third.Customer">
 		<property name="customerId">
 			<value>1</value>
 		</property>
@@ -62,7 +62,7 @@
 	</bean>
 	
 	<bean id="education01"
-		class="com.rollingstone.springframework.basic.ioc.setter.injection.Education">
+		class="com.rollingstone.springframework.basic.ioc.setter.injection.third.Education">
 		<property name="educationID">
 			<value>1</value>
 		</property>
@@ -90,7 +90,7 @@
 	</bean>
 	
 	<bean id="education02"
-		class="com.rollingstone.springframework.basic.ioc.setter.injection.Education">
+		class="com.rollingstone.springframework.basic.ioc.setter.injection.third.Education">
 		<property name="educationID">
 			<value>2</value>
 		</property>
@@ -118,7 +118,7 @@
 	</bean>
 
 	<bean id="customerWithAddress"
-		class="com.rollingstone.springframework.basic.ioc.setter.injection.CustomerWithAddress">
+		class="com.rollingstone.springframework.basic.ioc.setter.injection.third.CustomerWithAddress">
 		<property name="customerId">
 			<value>1</value>
 		</property>

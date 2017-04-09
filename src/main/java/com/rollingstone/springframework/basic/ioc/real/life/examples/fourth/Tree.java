@@ -51,7 +51,7 @@ public class Tree {
 	}
 	
 	public void conductPhotoSynthesis(){
-		logger.info("conductPhotoSynthesis using Chlrophill");
+		logger.info("conductPhotoSynthesis using Chlorophill");
 
 	}
 	

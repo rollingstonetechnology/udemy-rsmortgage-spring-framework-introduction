@@ -20,11 +20,11 @@ public class TestSimpleSpringIOC {
         BeanFactory factory=new XmlBeanFactory(r);  
           
         ShoppingCart  cartOfStrings =(ShoppingCart)factory.getBean("cartOfStrings");  
-        logger.info(cartOfStrings.toString());  
+        logger.info("List of Strings :"+cartOfStrings.toString());  
         
         
         ShoppingCartWithItemObjects  cartOfObjects =(ShoppingCartWithItemObjects)factory.getBean("cartOfObjects");  
-        logger.info(cartOfObjects.toString());  
+        logger.info("List Of Custom Java Objects : "+cartOfObjects.toString());  
           
     }  
 }

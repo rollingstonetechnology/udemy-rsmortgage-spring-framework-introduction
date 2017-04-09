@@ -20,11 +20,11 @@ public class TestSpringIOCMap {
         BeanFactory factory=new XmlBeanFactory(r);  
           
         CarOwner  carOwner =(CarOwner)factory.getBean("ownerCarMapOfStrings");  
-        logger.info(carOwner.toString());  
+        logger.info("Map Of Strings :"+carOwner.toString());  
         
         
         CarOwnerWithMapObjects  ownerCarMapOfObjects =(CarOwnerWithMapObjects)factory.getBean("ownerCarMapOfObjects");  
-        logger.info(ownerCarMapOfObjects.toString());  
+        logger.info("Map of Custom Java Objects : "+ownerCarMapOfObjects.toString());  
           
     }  
 }

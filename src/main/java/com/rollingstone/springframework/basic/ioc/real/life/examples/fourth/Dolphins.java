@@ -41,13 +41,13 @@ public class Dolphins extends Animal{
 
 	@Override
 	public void breatheOut() {
-		logger.info("Tiger Release CO2 into water!");
+		logger.info("Dolphin Release CO2 into water!");
 		
 	}
 
 	@Override
 	public void breathe() throws InterruptedException {
-		logger.info("Draw Oxygen molecules from Air");
+		logger.info("Draw Oxygen molecules from Water");
 		breatheIn(getLivingEnvironment().getAtmosphere().getOxygenReservoir().take());
 		breatheOut();
 		

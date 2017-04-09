@@ -13,11 +13,11 @@
 		<ref bean="X"/> </util:list> -->
 
 <bean id="atmosphere"
-		class="com.rollingstone.springframework.basic.real.life.examples.Atmosphere">
+		class="com.rollingstone.springframework.basic.ioc.real.life.examples.fourth.Atmosphere">
 </bean>
 	
 	<bean id="nature"
-		class="com.rollingstone.springframework.basic.real.life.examples.Nature">
+		class="com.rollingstone.springframework.basic.ioc.real.life.examples.fourth.Nature">
 		<property name="atmosphere"> 
 			<ref bean="atmosphere" />
 		</property>
@@ -70,7 +70,7 @@
 	</bean>
 
 	<bean id="forest01"
-		class="com.rollingstone.springframework.basic.real.life.examples.Forest">
+		class="com.rollingstone.springframework.basic.ioc.real.life.examples.fourth.Forest">
 		<property name="trees">
 			<list>
 				<ref bean="tree01" />
@@ -82,7 +82,7 @@
 	</bean>
 
 	<bean id="forest02"
-		class="com.rollingstone.springframework.basic.real.life.examples.Forest">
+		class="com.rollingstone.springframework.basic.ioc.real.life.examples.fourth.Forest">
 		<property name="trees">
 			<list>
 				<ref bean="tree05" />
@@ -94,7 +94,7 @@
 	</bean>
 
 	<bean id="forest03"
-		class="com.rollingstone.springframework.basic.real.life.examples.Forest">
+		class="com.rollingstone.springframework.basic.ioc.real.life.examples.fourth.Forest">
 		<property name="trees">
 			<list>
 				<ref bean="tree09" />
@@ -106,7 +106,7 @@
 	</bean>
 
 	<bean id="forest04"
-		class="com.rollingstone.springframework.basic.real.life.examples.Forest">
+		class="com.rollingstone.springframework.basic.ioc.real.life.examples.fourth.Forest">
 		<property name="trees">
 			<list>
 				<ref bean="tree13" />
@@ -136,7 +136,7 @@
 	</util:set> -->
 
 	<bean id="tiger01"
-		class="com.rollingstone.springframework.basic.real.life.examples.Tiger">
+		class="com.rollingstone.springframework.basic.ioc.real.life.examples.fourth.Tiger">
 		<property name="name" value="Royal Bengal Tiger"></property>
 		<property name="species" value="Carnivore"></property>
 		<property name="naturalHabitat" value="Mangrove Forest, Sunderbans"></property>
@@ -146,7 +146,7 @@
 
 
 	<bean id="tiger02"
-		class="com.rollingstone.springframework.basic.real.life.examples.Tiger">
+		class="com.rollingstone.springframework.basic.ioc.real.life.examples.fourth.Tiger">
 		<property name="name" value="Royal Bengal Tiger"></property>
 		<property name="species" value="Carnivore"></property>
 		<property name="naturalHabitat" value="Mangrove Forest, Sunderbans"></property>
@@ -155,7 +155,7 @@
 	</bean>
 
 	<bean id="tiger03"
-		class="com.rollingstone.springframework.basic.real.life.examples.Tiger">
+		class="com.rollingstone.springframework.basic.ioc.real.life.examples.fourth.Tiger">
 		<property name="name" value="Royal Bengal Tiger"></property>
 		<property name="species" value="Carnivore"></property>
 		<property name="naturalHabitat" value="Mangrove Forest, Sunderbans"></property>
@@ -164,7 +164,7 @@
 	</bean>
 
 	<bean id="dolphin01"
-		class="com.rollingstone.springframework.basic.real.life.examples.Dolphins">
+		class="com.rollingstone.springframework.basic.ioc.real.life.examples.fourth.Dolphins">
 		<property name="name" value="Wonderful Dolphins"></property>
 		<property name="species" value="Carnivore"></property>
 		<property name="naturalHabitat" value="Oceans and Bays"></property>
@@ -173,7 +173,7 @@
 	</bean>
 
 	<bean id="dolphin02"
-		class="com.rollingstone.springframework.basic.real.life.examples.Dolphins">
+		class="com.rollingstone.springframework.basic.ioc.real.life.examples.fourth.Dolphins">
 		<property name="name" value="Wonderful Dolphins"></property>
 		<property name="species" value="Carnivore"></property>
 		<property name="naturalHabitat" value="Oceans and Bays"></property>
@@ -182,7 +182,7 @@
 	</bean>
 
 	<bean id="dolphin03"
-		class="com.rollingstone.springframework.basic.real.life.examples.Dolphins">
+		class="com.rollingstone.springframework.basic.ioc.real.life.examples.fourth.Dolphins">
 		<property name="name" value="Wonderful Dolphins"></property>
 		<property name="species" value="Carnivore"></property>
 		<property name="naturalHabitat" value="Oceans and Bays"></property>
@@ -191,7 +191,7 @@
 	</bean>
 
 	<bean id="tree01"
-		class="com.rollingstone.springframework.basic.real.life.examples.Tree">
+		class="com.rollingstone.springframework.basic.ioc.real.life.examples.fourth.Tree">
 		<property name="name" value="Oak"></property>
 		<property name="height" value="10 Meters"></property>
 		<property name="age" value="70"></property>
@@ -200,7 +200,7 @@
 	</bean>
 
 	<bean id="tree02"
-		class="com.rollingstone.springframework.basic.real.life.examples.Tree">
+		class="com.rollingstone.springframework.basic.ioc.real.life.examples.fourth.Tree">
 		<property name="name" value="Willow"></property>
 		<property name="height" value="7 Meters"></property>
 		<property name="age" value="70"></property>
@@ -209,7 +209,7 @@
 	</bean>
 
 	<bean id="tree03"
-		class="com.rollingstone.springframework.basic.real.life.examples.Tree">
+		class="com.rollingstone.springframework.basic.ioc.real.life.examples.fourth.Tree">
 		<property name="name" value="Mango"></property>
 		<property name="height" value="5 Meters"></property>
 		<property name="age" value="70"></property>
@@ -218,7 +218,7 @@
 	</bean>
 
 	<bean id="tree04"
-		class="com.rollingstone.springframework.basic.real.life.examples.Tree">
+		class="com.rollingstone.springframework.basic.ioc.real.life.examples.fourth.Tree">
 		<property name="name" value="Teak"></property>
 		<property name="height" value="25 Meters"></property>
 		<property name="age" value="70"></property>
@@ -227,7 +227,7 @@
 	</bean>
 
 	<bean id="tree05"
-		class="com.rollingstone.springframework.basic.real.life.examples.Tree">
+		class="com.rollingstone.springframework.basic.ioc.real.life.examples.fourth.Tree">
 		<property name="name" value="Oak"></property>
 		<property name="height" value="10 Meters"></property>
 		<property name="age" value="70"></property>
@@ -236,7 +236,7 @@
 	</bean>
 
 	<bean id="tree06"
-		class="com.rollingstone.springframework.basic.real.life.examples.Tree">
+		class="com.rollingstone.springframework.basic.ioc.real.life.examples.fourth.Tree">
 		<property name="name" value="Willow"></property>
 		<property name="height" value="7 Meters"></property>
 		<property name="age" value="70"></property>
@@ -245,7 +245,7 @@
 	</bean>
 
 	<bean id="tree07"
-		class="com.rollingstone.springframework.basic.real.life.examples.Tree">
+		class="com.rollingstone.springframework.basic.ioc.real.life.examples.fourth.Tree">
 		<property name="name" value="Mango"></property>
 		<property name="height" value="5 Meters"></property>
 		<property name="age" value="70"></property>
@@ -254,7 +254,7 @@
 	</bean>
 
 	<bean id="tree08"
-		class="com.rollingstone.springframework.basic.real.life.examples.Tree">
+		class="com.rollingstone.springframework.basic.ioc.real.life.examples.fourth.Tree">
 		<property name="name" value="Teak"></property>
 		<property name="height" value="25 Meters"></property>
 		<property name="age" value="70"></property>
@@ -263,7 +263,7 @@
 	</bean>
 
 	<bean id="tree09"
-		class="com.rollingstone.springframework.basic.real.life.examples.Tree">
+		class="com.rollingstone.springframework.basic.ioc.real.life.examples.fourth.Tree">
 		<property name="name" value="Oak"></property>
 		<property name="height" value="10 Meters"></property>
 		<property name="age" value="70"></property>
@@ -272,7 +272,7 @@
 	</bean>
 
 	<bean id="tree10"
-		class="com.rollingstone.springframework.basic.real.life.examples.Tree">
+		class="com.rollingstone.springframework.basic.ioc.real.life.examples.fourth.Tree">
 		<property name="name" value="Willow"></property>
 		<property name="height" value="7 Meters"></property>
 		<property name="age" value="70"></property>
@@ -281,7 +281,7 @@
 	</bean>
 
 	<bean id="tree11"
-		class="com.rollingstone.springframework.basic.real.life.examples.Tree">
+		class="com.rollingstone.springframework.basic.ioc.real.life.examples.fourth.Tree">
 		<property name="name" value="Mango"></property>
 		<property name="height" value="5 Meters"></property>
 		<property name="age" value="70"></property>
@@ -290,7 +290,7 @@
 	</bean>
 
 	<bean id="tree12"
-		class="com.rollingstone.springframework.basic.real.life.examples.Tree">
+		class="com.rollingstone.springframework.basic.ioc.real.life.examples.fourth.Tree">
 		<property name="name" value="Teak"></property>
 		<property name="height" value="25 Meters"></property>
 		<property name="age" value="70"></property>
@@ -299,7 +299,7 @@
 	</bean>
 
 	<bean id="tree13"
-		class="com.rollingstone.springframework.basic.real.life.examples.Tree">
+		class="com.rollingstone.springframework.basic.ioc.real.life.examples.fourth.Tree">
 		<property name="name" value="Oak"></property>
 		<property name="height" value="10 Meters"></property>
 		<property name="age" value="70"></property>
@@ -308,7 +308,7 @@
 	</bean>
 
 	<bean id="tree14"
-		class="com.rollingstone.springframework.basic.real.life.examples.Tree">
+		class="com.rollingstone.springframework.basic.ioc.real.life.examples.fourth.Tree">
 		<property name="name" value="Willow"></property>
 		<property name="height" value="7 Meters"></property>
 		<property name="age" value="70"></property>
@@ -317,7 +317,7 @@
 	</bean>
 
 	<bean id="tree15"
-		class="com.rollingstone.springframework.basic.real.life.examples.Tree">
+		class="com.rollingstone.springframework.basic.ioc.real.life.examples.fourth.Tree">
 		<property name="name" value="Mango"></property>
 		<property name="height" value="5 Meters"></property>
 		<property name="age" value="70"></property>
@@ -326,7 +326,7 @@
 	</bean>
 
 	<bean id="tree16"
-		class="com.rollingstone.springframework.basic.real.life.examples.Tree">
+		class="com.rollingstone.springframework.basic.ioc.real.life.examples.fourth.Tree">
 		<property name="name" value="Teak"></property>
 		<property name="height" value="25 Meters"></property>
 		<property name="age" value="70"></property>
@@ -336,7 +336,7 @@
 
 
 	<bean id="tree17"
-		class="com.rollingstone.springframework.basic.real.life.examples.Tree">
+		class="com.rollingstone.springframework.basic.ioc.real.life.examples.fourth.Tree">
 		<property name="name" value="Oak"></property>
 		<property name="height" value="10 Meters"></property>
 		<property name="age" value="70"></property>
@@ -345,7 +345,7 @@
 	</bean>
 
 	<bean id="tree18"
-		class="com.rollingstone.springframework.basic.real.life.examples.Tree">
+		class="com.rollingstone.springframework.basic.ioc.real.life.examples.fourth.Tree">
 		<property name="name" value="Willow"></property>
 		<property name="height" value="7 Meters"></property>
 		<property name="age" value="70"></property>
@@ -354,7 +354,7 @@
 	</bean>
 
 	<bean id="tree19"
-		class="com.rollingstone.springframework.basic.real.life.examples.Tree">
+		class="com.rollingstone.springframework.basic.ioc.real.life.examples.fourth.Tree">
 		<property name="name" value="Mango"></property>
 		<property name="height" value="5 Meters"></property>
 		<property name="age" value="70"></property>
@@ -363,7 +363,7 @@
 	</bean>
 
 	<bean id="tree20"
-		class="com.rollingstone.springframework.basic.real.life.examples.Tree">
+		class="com.rollingstone.springframework.basic.ioc.real.life.examples.fourth.Tree">
 		<property name="name" value="Teak"></property>
 		<property name="height" value="25 Meters"></property>
 		<property name="age" value="70"></property>

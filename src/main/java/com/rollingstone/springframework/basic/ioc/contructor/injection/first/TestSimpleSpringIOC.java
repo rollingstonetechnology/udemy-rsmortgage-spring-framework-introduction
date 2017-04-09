@@ -19,6 +19,10 @@ public class TestSimpleSpringIOC {
         Resource r=new ClassPathResource("spring-ioc-constructor-arg.xml");  
         BeanFactory factory=new XmlBeanFactory(r);  
           
+       
+        Customer customer01 =(Customer)factory.getBean("customer01");  
+        logger.info(customer01.toString());  
+        
         Investment investment =(Investment)factory.getBean("investment01");  
         logger.info(investment.toString());  
           

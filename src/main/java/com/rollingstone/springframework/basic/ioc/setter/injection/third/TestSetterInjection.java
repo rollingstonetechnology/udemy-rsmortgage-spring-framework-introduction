@@ -19,10 +19,10 @@ public class TestSetterInjection {
 	        BeanFactory factory=new XmlBeanFactory(r);  
 	          
 	        Customer customer =(Customer)factory.getBean("customer");  
-	        logger.info("Customer Infromation :"+customer.toString());  
+	        logger.info("Customer Infromation : "+customer.toString());  
 	        
 	        CustomerWithAddress customerWithAddress =(CustomerWithAddress)factory.getBean("customerWithAddress");  
-	        logger.info("Customer With Address Infromation :"+customerWithAddress.toString());  
+	        logger.info("Customer With Address Infromation : "+customerWithAddress.toString());  
 	        
 	        
 	          

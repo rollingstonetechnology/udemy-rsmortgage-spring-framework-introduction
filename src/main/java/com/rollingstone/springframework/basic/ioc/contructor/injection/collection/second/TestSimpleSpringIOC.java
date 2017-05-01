@@ -7,7 +7,6 @@ import org.springframework.beans.factory.xml.XmlBeanFactory;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
 
-import com.rollingstone.springframework.basic.ioc.real.life.examples.fourth.Dolphins;
 
 public class TestSimpleSpringIOC {
 

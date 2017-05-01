@@ -7,7 +7,6 @@ import org.springframework.beans.factory.xml.XmlBeanFactory;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
 
-import com.rollingstone.springframework.basic.ioc.real.life.examples.fourth.Dolphins;
 
 public class TestSimpleSpringIOC {
 
@@ -21,10 +20,11 @@ public class TestSimpleSpringIOC {
           
        
         Customer customer01 =(Customer)factory.getBean("customer01");  
-        logger.info(customer01.toString());  
+        logger.info("Customer Bean : "+customer01.toString());  
+        
         
         Investment investment =(Investment)factory.getBean("investment01");  
-        logger.info(investment.toString());  
+        logger.info("Investment Bean : "+investment.toString());  
           
     }  
 }

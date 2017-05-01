@@ -60,8 +60,8 @@
 		<property name="animals">
 			<list>
 				<ref bean="tiger01" />
-				<ref bean="tiger01" />
-				<ref bean="tiger01" />
+				<ref bean="tiger02" />
+				<ref bean="tiger03" />
 				<ref bean="dolphin01" />
 				<ref bean="dolphin02" />
 				<ref bean="dolphin03" />
@@ -80,7 +80,7 @@
 			</list>
 		</property>
 	</bean>
-
+	
 	<bean id="forest02"
 		class="com.rollingstone.springframework.basic.ioc.real.life.examples.fourth.Forest">
 		<property name="trees">
@@ -117,24 +117,8 @@
 		</property>
 	</bean>
 
-<!-- 	<util:map id="Z" map-class="java.util.HashMap">
-		<entry key="x" value="y" />
-		<entry key="y">
-			<ref bean="X" />
-		</entry>
-	</util:map>
 
-	<util:properties id="P" location="classpath:Main.properties" />
-
-	<bean id="simple" class="SimpleBean" />
-
-	<util:property-path id="Q" path="simple.name" />
-
-	<util:set id="S" set-class="java.util.HashSet">
-		<value>foo</value>
-		<ref bean="X" />
-	</util:set> -->
-
+	
 	<bean id="tiger01"
 		class="com.rollingstone.springframework.basic.ioc.real.life.examples.fourth.Tiger">
 		<property name="name" value="Royal Bengal Tiger"></property>
@@ -171,7 +155,7 @@
 		<property name="endengered" value="false" />
 		<property name="color" value="Black and White" />
 	</bean>
-
+	
 	<bean id="dolphin02"
 		class="com.rollingstone.springframework.basic.ioc.real.life.examples.fourth.Dolphins">
 		<property name="name" value="Wonderful Dolphins"></property>
@@ -216,7 +200,7 @@
 		<property name="habitat" value="India, Mexico, China, Latin America" />
 		<property name="type" value="Tropical" />
 	</bean>
-
+	
 	<bean id="tree04"
 		class="com.rollingstone.springframework.basic.ioc.real.life.examples.fourth.Tree">
 		<property name="name" value="Teak"></property>
@@ -261,7 +245,7 @@
 		<property name="habitat" value="India, Malaysia, Indonesia" />
 		<property name="type" value="Tropical" />
 	</bean>
-
+	
 	<bean id="tree09"
 		class="com.rollingstone.springframework.basic.ioc.real.life.examples.fourth.Tree">
 		<property name="name" value="Oak"></property>
@@ -306,7 +290,8 @@
 		<property name="habitat" value="Europe and North America" />
 		<property name="type" value="Tropical" />
 	</bean>
-
+	
+	
 	<bean id="tree14"
 		class="com.rollingstone.springframework.basic.ioc.real.life.examples.fourth.Tree">
 		<property name="name" value="Willow"></property>
@@ -352,7 +337,7 @@
 		<property name="habitat" value="Europe and North America" />
 		<property name="type" value="Tropical" />
 	</bean>
-
+	
 	<bean id="tree19"
 		class="com.rollingstone.springframework.basic.ioc.real.life.examples.fourth.Tree">
 		<property name="name" value="Mango"></property>
@@ -372,4 +357,3 @@
 	</bean>
 
 </beans>
-

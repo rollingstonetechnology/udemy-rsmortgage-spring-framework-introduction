@@ -19,5 +19,5 @@ public interface AirportOperations {
 	public void goThroughImmigrationAndCustomsCheck(Traveller t) throws AirportOperationxException;
 
 	public void reprintBoardingPAss(Traveller t) throws AirportOperationxException;
-
+	
 }

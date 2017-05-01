@@ -7,7 +7,6 @@ import org.springframework.beans.factory.xml.XmlBeanFactory;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
 
-import com.rollingstone.springframework.basic.ioc.real.life.examples.fourth.Dolphins;
 
 public class TestSpringIOCMap {
 
@@ -20,7 +19,7 @@ public class TestSpringIOCMap {
         BeanFactory factory=new XmlBeanFactory(r);  
           
         CarOwner  carOwner =(CarOwner)factory.getBean("ownerCarMapOfStrings");  
-        logger.info("Map Of Strings :"+carOwner.toString());  
+        logger.info("Map Of Strings : "+carOwner.toString());  
         
         
         CarOwnerWithMapObjects  ownerCarMapOfObjects =(CarOwnerWithMapObjects)factory.getBean("ownerCarMapOfObjects");  

@@ -2,11 +2,10 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.rollingstone</groupId>
-	<artifactId>udemy-rsmortgage-spring-aop-afterretruning</artifactId>
+	<artifactId>udemy-rsmortgage-spring-framework-introduction-correct</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>udemy-rsmortgage-spring-framework-introduction</name>
-	<description>udemy-rsmortgage-spring-framework-introduction</description>
-
+	<name>udemy-rsmortgage-spring-framework-introduction-correct</name>
+	<description>Introduction to Spring Framework Concepts</description>
 
 	<properties>
 		<logback.version>1.1.1</logback.version>
@@ -15,15 +14,13 @@
 	</properties>
 
 	<dependencies>
-		<!-- https://mvnrepository.com/artifact/org.springframework/spring-core -->
+
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-core</artifactId>
 			<version>4.3.7.RELEASE</version>
 		</dependency>
 
-
-		<!-- https://mvnrepository.com/artifact/org.springframework/spring-context -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context</artifactId>
@@ -36,7 +33,6 @@
 			</exclusions>
 		</dependency>
 
-		<!-- https://mvnrepository.com/artifact/org.springframework/spring-aop -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-aop</artifactId>
@@ -64,8 +60,7 @@
 			<version>1.6.11</version>
 		</dependency>
 
-		<!-- LogBack dependencies -->
-		<!-- https://mvnrepository.com/artifact/ch.qos.logback/logback-classic -->
+
 		<dependency>
 			<groupId>ch.qos.logback</groupId>
 			<artifactId>logback-classic</artifactId>
@@ -86,8 +81,5 @@
 			<artifactId>logback-core</artifactId>
 			<version>1.2.2</version>
 		</dependency>
-
-
 	</dependencies>
-
 </project>

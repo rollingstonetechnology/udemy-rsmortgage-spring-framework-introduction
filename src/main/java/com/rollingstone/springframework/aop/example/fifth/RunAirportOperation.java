@@ -10,8 +10,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class RunAirportOperation {
 
-/*	@Autowired
-	AirportOperationCommonTracker airportServices;*/
+
 	
 	private static final Logger logger = LoggerFactory.getLogger(RunAirportOperation.class);
 

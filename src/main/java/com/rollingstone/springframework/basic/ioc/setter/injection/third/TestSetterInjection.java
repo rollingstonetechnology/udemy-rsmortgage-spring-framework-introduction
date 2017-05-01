@@ -7,7 +7,6 @@ import org.springframework.beans.factory.xml.XmlBeanFactory;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
 
-import com.rollingstone.springframework.aop.example.fifth.RunAirportOperation;
 
 public class TestSetterInjection {
 
@@ -22,7 +21,7 @@ public class TestSetterInjection {
 	        logger.info("Customer Infromation : "+customer.toString());  
 	        
 	        CustomerWithAddress customerWithAddress =(CustomerWithAddress)factory.getBean("customerWithAddress");  
-	        logger.info("Customer With Address Infromation : "+customerWithAddress.toString());  
+	        logger.info("Customer With Address , Education, and Phone Numbers Infromation : "+customerWithAddress.toString());  
 	        
 	        
 	          

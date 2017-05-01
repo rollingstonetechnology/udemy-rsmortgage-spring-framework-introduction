@@ -23,6 +23,8 @@ public class Flight {
 	private List<Pilot> pilots = new ArrayList<Pilot>();
 	
 	private List<FlightAttendant> flightAttendants = new ArrayList<FlightAttendant>();
+	
+	private List<Traveller> passengers = new ArrayList<Traveller>();
 
 	public long getFlightID() {
 		return flightID;
@@ -81,6 +83,30 @@ public class Flight {
 	}
 
 	
+
+	public Airplane getAirplane() {
+		return airplane;
+	}
+
+	public void setAirplane(Airplane airplane) {
+		this.airplane = airplane;
+	}
+
+	public List<FlightAttendant> getFlightAttendants() {
+		return flightAttendants;
+	}
+
+	public void setFlightAttendants(List<FlightAttendant> flightAttendants) {
+		this.flightAttendants = flightAttendants;
+	}
+
+	public List<Traveller> getPassengers() {
+		return passengers;
+	}
+
+	public void setPassengers(List<Traveller> passengers) {
+		this.passengers = passengers;
+	}
 
 	public Flight(long flightID, String flightCode, Airport fromAirport, Airport destinationAirport,
 			LocalDateTime departureTime, LocalDateTime arrivalTime, Airplane airplane, List<Pilot> pilots,
